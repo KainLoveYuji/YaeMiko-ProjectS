@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Hắc Hùng Quyền",
+        "type": "congphap",
+        "description": "Công pháp gồm các chiêu thức quyền pháp của gấu đen",
+        "rarity": "Common",
+        "stage": 0,
+        "typeElement": "physic",
+        "nguyento": "Vật Lý",
+        "growIncrease": 0,
+        "ATK": 1,
+        "DEF": 1,
+        "SPD": 1,
+        "armor_Piercing": 1,
+        "damage_Reduction": 1
+    }
+]
