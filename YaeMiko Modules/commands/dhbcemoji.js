@@ -4,7 +4,7 @@ module.exports.config = {
     hasPermssion: 0,
     credits: "DVB", // Dựa trên demo của ntkhang not phải bot mirai
     description: "game đuổi hình bắt chữ emoji",
-    commandCategory: "Game",
+    commandCategory: "trò chơi",
     usages: "",
     cooldowns: 5,
 };

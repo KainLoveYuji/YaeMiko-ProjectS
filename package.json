@@ -83,6 +83,12 @@
         "unshorten.it": "^1.0.0",
         "websocket-stream": "^5.5.0",
         "youtube-search-api": "^1.1.0",
-        "ytdl-core": "^4.11.5"
+        "ytdl-core": "^4.11.5",
+        "chem-eb": "",
+        "javascript-obfuscator": "",
+        "qrcode-reader": "",
+        "form-data": "",
+        "wikijs": "", 
+        "imgbb-uploader": ""
     }
 }
