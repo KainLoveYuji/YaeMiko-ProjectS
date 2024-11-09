@@ -1,5 +1,5 @@
 module.exports.config = {
-  name: "musicv2",
+  name: "musicv3",
   version: "1.0.2",
   hasPermssion: 0,
   credits: "Kain Naji",//Độ Text By Kain Naji
@@ -24,14 +24,14 @@ module.exports.run = async function({ api, event }) {
   if (thu == 'Friday') thu = '𝐓𝐡𝐮̛́ 𝐒𝐚́𝐮'
   if (thu == 'Saturday') thu = '𝐓𝐡𝐮̛́ 𝐁𝐚̉𝐲'
   var thinh = (await axios.get("https://api-kainriyu-project.onrender.com/Poem/love")).data.data;
-  axios.get('https://api-kainriyu-project.onrender.com/vdmusicv2').then(res => {
+  axios.get('https://api-kainriyu-project.onrender.com/vdnhac').then(res => {
   let ext = res.data.data.substring(res.data.data.lastIndexOf(".") + 1);
   let count = res.data.count;
   let callback = function () {
           api.sendMessage({
             body: `『 🎶 』𝐌𝐔𝐒𝐈𝐂『 🎶 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 ⏰️ 』 ➣ 𝐓𝐢𝐦𝐞: 『 ${gio} || ${ngay} 』\n『 🧸 』 ➣ 𝐇𝐨̂𝐦 𝐍𝐚𝐲 𝐋𝐚̀ ${thu}\n『 🌱 』 ➣ 𝐂𝐡𝐮́𝐜 𝐁𝐚̣𝐧 𝐍𝐠𝐡𝐞 𝐍𝐡𝐚̣𝐜 𝐕𝐮𝐢 𝐕𝐞̉!\n『 💬 』 ➣ 𝐓𝐡𝐢́𝐧𝐡: 『 ${thinh} 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 𝐀𝐡𝐫𝐢 𝐇𝐮𝐲𝐞̂̀𝐧 𝐓𝐡𝐨𝐚̣𝐢 𝐁𝐚̂́𝐭 𝐓𝐮̛ 』`,
-            attachment: fs.createReadStream(__dirname + `/cache/speedup.${ext}`)
-          }, event.threadID, () => fs.unlinkSync(__dirname + `/cache/speedup.${ext}`), event.messageID);
-        };      request(res.data.data).pipe(fs.createWriteStream(__dirname + `/cache/speedup.${ext}`)).on("close", callback);
+            attachment: fs.createReadStream(__dirname + `/cache/vdnhac.${ext}`)
+          }, event.threadID, () => fs.unlinkSync(__dirname + `/cache/vdnhac.${ext}`), event.messageID);
+        };      request(res.data.data).pipe(fs.createWriteStream(__dirname + `/cache/vdnhac.${ext}`)).on("close", callback);
       })
                         }
