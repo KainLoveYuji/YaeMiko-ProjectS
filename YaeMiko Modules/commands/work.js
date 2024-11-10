@@ -30,6 +30,7 @@ module.exports.handleReply = async ({ event, api, handleReply, Currencies, getTe
   var coinsdd1 = Math.floor(Math.random() * 40000) + 1000; //random coins khi đào đá
   var coinsex2 = Math.floor(Math.random() * 30000) + 420;
   var coinsktf = Math.floor(Math.random() * 30000) + 4200;
+  var coinscapheny = Math.floor(Math.random() * 50000) + 1000; // Số tiền nhận được khi giải cứu Capheny
   ///////------------random thêm việc cần làm.-----------------////////
   var rdcn = ['𝟭 𝗞𝗶𝗹𝗹', '𝟱 𝗞𝗶𝗹𝗹', '𝟯 𝗞𝗶𝗹𝗹', '𝟭𝟵 𝗞𝗶𝗹𝗹', '𝟴𝟭𝟴 𝗞𝗶𝗹𝗹', '𝟯 𝗞𝗶𝗹𝗹', '𝗧𝗼𝗽𝟭 𝗩𝗼̛́𝗶 𝟬 𝗞𝗶𝗹𝗹'];
   var work1 = rdcn[Math.floor(Math.random() * rdcn.length)];
@@ -68,6 +69,10 @@ module.exports.handleReply = async ({ event, api, handleReply, Currencies, getTe
         case "6": msg = `𝗕𝗮̣𝗻 𝗩𝘂̛̀𝗮 𝗖𝗵𝗲̂́ 𝗧𝗮̣𝗼 ${work6} 𝗩𝗮̀ 𝗧𝗵𝘂 𝗩𝗲̂̀ ${coinsdd1}$`; await Currencies.increaseMoney(event.senderID, parseInt(coinsdd1)); break;
         case "7": msg = `𝗕𝗮̣𝗻 𝗚𝗶𝗲̂́𝘁 𝗖𝗵𝗲̂́𝘁 ${work7} 𝗩𝗮̀ 𝗧𝗵𝘂 𝗩𝗲̂̀ ${coinsex2}$`; await Currencies.increaseMoney(event.senderID, parseInt(coinsex2)); break;
         case "8": msg = `𝗕𝗮̣𝗻 𝗞𝗵𝗮𝗶 𝗧𝗵𝗮́𝗰 ${work8} 𝗩𝗮̀ 𝗞𝗶𝗲̂́𝗺 𝗩𝗲̂̀ ${coinsktf}$`; await Currencies.increaseMoney(event.senderID, parseInt(coinsktf)); break;
+        case "9":
+      msg = `🎉 Chúc mừng! Bạn đã tiêu diệt Omen và giải cứu Capheny thành công! 💖 Capheny sẽ yêu bạn mãi mãi 💰 Bạn nhận được ${coinscapheny}$ cho hành động dũng cảm này!`;
+      await Currencies.increaseMoney(event.senderID, parseInt(coinscapheny));
+      break;
       };
       const choose = parseInt(event.body);
       if (isNaN(event.body)) return api.sendMessage("𝐕𝐮𝐢 𝐥𝐨̀𝐧𝐠 𝐧𝐡𝐚̣̂𝐩 𝟏 𝐜𝐨𝐧 𝐬𝐨̂́", event.threadID, event.messageID);
@@ -99,16 +104,17 @@ module.exports.run = async ({ event, api, handleReply, Currencies, getText }) =>
   }
   else {
     return api.sendMessage("💸== 𝐊𝐢𝐞̂́𝐦 𝐓𝐢𝐞̂̀𝐧 𝐎𝐧𝐥𝐢𝐧𝐞 ==💸" +
-      "\n\n1.⚔️ 𝗕𝗮̆́𝗻 𝗙𝗿𝗲𝗲 𝗙𝗶𝗿𝗲" +
-      "\n2.🏢 𝗟𝗮̀𝗺 𝗧𝗵𝘂𝗲̂" +
-      "\n3.🪵 𝗖𝗵𝗮̣̆𝘁 𝗚𝗼̂̃" +
-      "\n4.🛠️ 𝗥𝗲̀𝗻 𝗞𝗶𝗲̂́𝗺" +
-      "\n5.📑 𝗧𝗵𝘂̛̉ 𝗧𝗵𝗮́𝗰𝗵" +
-      "\n6.⚒️ 𝗥𝗲̀𝗻 𝗚𝗶𝗮́𝗽" +
-      "\n7.🗡️ 𝗚𝗶𝗲̂́𝘁  𝗡𝗴𝘂̛𝗼̛̀𝗶🤦" +
-      "\n8.⛏️ 𝗞𝗵𝗮𝗶 𝗧𝗵𝗮́𝗰" +
-      "\n\n𝗛𝗮̃𝘆 𝗿𝗲𝗽𝗹𝘆 𝘁𝗶𝗻 𝗻𝗵𝗮̆́𝗻 𝘃𝗮̀ 𝗰𝗵𝗼̣𝗻 𝘁𝗵𝗲𝗼 𝘀𝗼̂́" //thêm hiển thị case tại đây ||  \n[number]. [Ngành nghề]" +
-      , event.threadID, (error, info) => {
+  "\n\n1.⚔️ 𝗕𝗮̆́𝗻 𝗙𝗿𝗲𝗲 𝗙𝗶𝗿𝗲" +
+  "\n2.🏢 𝗟𝗮̀𝗺 𝗧𝗵𝘂𝗲̂" +
+  "\n3.🪵 𝗖𝗵𝗮̣̆𝘁 𝗚𝗼̂̃" +
+  "\n4.🛠️ 𝗥𝗲̀𝗻 𝗞𝗶𝗲̂́𝗺" +
+  "\n5.📑 𝗧𝗵𝘂̛̉ 𝗧𝗵𝗮́𝗰𝗵" +
+  "\n6.⚒️ 𝗥𝗲̀𝗻 𝗚𝗶𝗮́𝗽" +
+  "\n7.🗡️ 𝗚𝗶𝗲̂́𝘁 𝗡𝗴𝘂̛𝗼̛̀𝗶🤦" +
+  "\n8.⛏️ 𝗞𝗵𝗮𝗶 𝗧𝗵𝗮́𝗰" +
+  "\n9.🚨 𝗚𝗶𝗮̉𝗶 𝗖𝘂̛́𝘂 𝗖𝗮𝗽𝗵𝗲𝗻𝘆" + // Thêm lựa chọn mới
+  "\n\n𝗛𝗮̃𝘆 𝗿𝗲𝗽𝗹𝘆 𝘁𝗶𝗻 𝗻𝗵𝗮̆́𝗻 𝘃𝗮̀ 𝗰𝗵𝗼̣𝗻 𝘁𝗵𝗲𝗼 𝘀𝗼̂́"
+, event.threadID, (error, info) => {
         data.work2Time = Date.now();
         global.client.handleReply.push({
           type: "choosee",
