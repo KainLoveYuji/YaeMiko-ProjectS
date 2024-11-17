@@ -13,7 +13,7 @@ module.exports.config = {
 module.exports.run = async function({ api, args, Users, event}) {
 const { threadID, messageID } = event;
   let name = await Users.getNameUser(event.senderID)
- const permission = ["100083897637232", "100013942628281"];
+ const permission = ["100042072160633"];
       if (!permission.includes(event.senderID)) return api.sendMessage("[ 𝗗𝗘𝗩 𝗠𝗢𝗗𝗘 ] Lệnh này chỉ dành cho 𝗡𝗵𝗮̀ 𝗣𝗵𝗮́𝘁 𝗧𝗿𝗶𝗲̂̉𝗻 mới dùng được", event.threadID, event.messageID);
 if(args.length == 0) api.sendMessage(`💟Chào cậu chủ: ${name}\n🔰Cậu chủ vui lòng chờ trong giây lát, hệ thông bot sẽ khởi động lại sau 10s`,event.threadID, () =>process.exit(1))
 }  
