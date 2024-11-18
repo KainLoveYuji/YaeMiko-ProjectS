@@ -4,9 +4,9 @@ const schedule = require('node-schedule');
 module.exports.config = {
   name: "restart",
   version: "1.0.0",
-  hasPermssion: 2,
-  credits: "YourName",
-  description: "Restart bot ngay lập tức hoặc tự động vào lúc 12h đêm",
+  hasPermssion: 3,
+  credits: "Ahri",
+  description: "Restart bot ngay lập tức hoặc tự động vào lúc 1:35 AM",
   commandCategory: "System",
   cooldowns: 5
 };
@@ -28,9 +28,9 @@ module.exports.run = async ({ event, api }) => {
   });
 };
 
-// Tự động restart lúc 12h đêm
-schedule.scheduleJob('0 0 * * *', () => {
-  console.log("Bot đang tự động restart lúc 12h đêm...");
+// Tự động restart lúc 1:35 AM
+schedule.scheduleJob('35 1 * * *', () => {
+  console.log("Bot đang tự động restart lúc 1:35 AM...");
   exec('node index.js', (err, stdout, stderr) => { // Bạn có thể đổi thành 'npm start' nếu cần
     if (err) {
       console.error(`Lỗi khi tự động restart bot: ${err}`);
