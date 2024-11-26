@@ -32,7 +32,7 @@ module.exports.run = async ({ event, api, args }) => {
                 message += `${key}: ${listData[key]}\n`;
             });
 
-            return api.sendMessage({body: message, attachment: (await axios.get((await axios.get(`https://api-kainriyu-project-oofm.onrender.com/anime`)).data.data,  {
+            return api.sendMessage({body: message, attachment: (await axios.get((await axios.get(`https://api-kainriyu-project-yv9i.onrender.com/anime`)).data.data,  {
                     responseType: 'stream'
                 })).data}, event.threadID, event.messageID);
         }

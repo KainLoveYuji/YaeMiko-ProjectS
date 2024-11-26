@@ -25,9 +25,7 @@
         "antibdbot.js",
         "rule.js"
     ],
-    "configApi": {
-        "domain": "https://api-kainriyu-project.onrender.com"
-    },
+    "API": "https://api-kainriyu-project-yv9i.onrender.com",
     "EMAIL": "",
     "PASSWORD": "",
     "OTPKEY": "",

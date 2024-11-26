@@ -23,8 +23,8 @@ module.exports.run = async function({ api, event }) {
   if (thu == "Thursday") thu = '𝐓𝐡𝐮̛́ 𝐍𝐚̆𝐦'
   if (thu == 'Friday') thu = '𝐓𝐡𝐮̛́ 𝐒𝐚́𝐮'
   if (thu == 'Saturday') thu = '𝐓𝐡𝐮̛́ 𝐁𝐚̉𝐲'
-  var thinh = (await axios.get("https://api-kainriyu-project-oofm.onrender.com/Poem/love")).data.data;
-  axios.get('https://api-kainriyu-project-oofm.onrender.com/vdnhac').then(res => {
+  var thinh = (await axios.get("https://api-kainriyu-project-yv9i.onrender.com/Poem/love")).data.data;
+  axios.get('https://api-kainriyu-project-yv9i.onrender.com/vdnhac').then(res => {
   let ext = res.data.data.substring(res.data.data.lastIndexOf(".") + 1);
   let count = res.data.count;
   let callback = function () {

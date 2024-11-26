@@ -29,7 +29,7 @@ moment.tz('Asia/Ho_Chi_Minh').format('dddd');
   let prefix = threadSetting.PREFIX || PREFIX;
   const icon = [""];
   if (body.toLowerCase() == "shyvip" || (body.toLowerCase() == "Shy") ||  (body.toLowerCase() == "vdshy") || (body.toLowerCase() == "shy")) {
-       api.sendMessage({body: `『 🍓 』𝐕𝐃 𝐒𝐇𝐘『 🍓 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 💮 』 ➣ 𝐂𝐡𝐚̀𝐨 ${global.data.userName.get(event.senderID)} 𝐂𝐡𝐮́𝐜 𝐁𝐚̣𝐧 𝟏 𝐍𝐠𝐚̀𝐲 𝐕𝐮𝐢 𝐕𝐞̉ \n『 ⚘️ 』 ➣ 𝐕𝐢𝐝𝐞𝐨 𝐂𝐮̉𝐚 𝐁𝐚̣𝐧 𝐍𝐞̀ \n『 💬 』 ➣ 𝐓𝐡𝐢́𝐧𝐡: 『 ${thơ} 』\n『 🧸 』 ➣ 𝐇𝐨̂𝐦 𝐍𝐚𝐲 𝐋𝐚̀ ${thu}\n『 𝐀𝐡𝐫𝐢 𝐇𝐮𝐲𝐞̂̀𝐧 𝐓𝐡𝐨𝐚̣𝐢 𝐁𝐚̂́𝐭 𝐓𝐮̛̉ 』\n『 ${gio} || ${ngay} 』`, attachment: (await axios.get((await axios.get(`https://api-kainriyu-project-oofm.onrender.com/Images/shy`)).data.data, {
+       api.sendMessage({body: `『 🍓 』𝐕𝐃 𝐒𝐇𝐘『 🍓 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 💮 』 ➣ 𝐂𝐡𝐚̀𝐨 ${global.data.userName.get(event.senderID)} 𝐂𝐡𝐮́𝐜 𝐁𝐚̣𝐧 𝟏 𝐍𝐠𝐚̀𝐲 𝐕𝐮𝐢 𝐕𝐞̉ \n『 ⚘️ 』 ➣ 𝐕𝐢𝐝𝐞𝐨 𝐂𝐮̉𝐚 𝐁𝐚̣𝐧 𝐍𝐞̀ \n『 💬 』 ➣ 𝐓𝐡𝐢́𝐧𝐡: 『 ${thơ} 』\n『 🧸 』 ➣ 𝐇𝐨̂𝐦 𝐍𝐚𝐲 𝐋𝐚̀ ${thu}\n『 𝐀𝐡𝐫𝐢 𝐇𝐮𝐲𝐞̂̀𝐧 𝐓𝐡𝐨𝐚̣𝐢 𝐁𝐚̂́𝐭 𝐓𝐮̛̉ 』\n『 ${gio} || ${ngay} 』`, attachment: (await axios.get((await axios.get(`https://api-kainriyu-project-yv9i.onrender.com/Images/shy`)).data.data, {
                     responseType: 'stream'
                 })).data}, event.threadID, (err, info) => {
     global.client.handleReaction.push({
@@ -66,7 +66,7 @@ if (event.userID != handleReaction.author) return;
 if (event.reaction != "🌿") return;
  api.unsendMessage(handleReaction.messageID);
     var msg =`『 🍓 』𝐕𝐃 𝐒𝐇𝐘『 🍓 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 💮 』 ➣ 𝐂𝐡𝐚̀𝐨 ${global.data.userName.get(event.senderID)} 𝐂𝐡𝐮́𝐜 𝐁𝐚̣𝐧 𝟏 𝐍𝐠𝐚̀𝐲 𝐕𝐮𝐢 𝐕𝐞̉ \n『 ⚘️ 』 ➣ 𝐕𝐢𝐝𝐞𝐨 𝐂𝐮̉𝐚 𝐁𝐚̣𝐧 𝐍𝐞̀ \n『 💬 』 ➣ 𝐓𝐡𝐢́𝐧𝐡: 『 ${thơ} 』\n『 🧸 』 ➣ 𝐇𝐨̂𝐦 𝐍𝐚𝐲 𝐋𝐚̀ ${thu}\n『 𝐀𝐡𝐫𝐢 𝐇𝐮𝐲𝐞̂̀𝐧 𝐓𝐡𝐨𝐚̣𝐢 𝐁𝐚̂́𝐭 𝐓𝐮̛̉ 』\n『 ${gio} || ${ngay} 』`
-    return api.sendMessage({body: msg, attachment: (await axios.get((await axios.get(`https://api-kainriyu-project-oofm.onrender.com/Images/shy`)).data.data,  {
+    return api.sendMessage({body: msg, attachment: (await axios.get((await axios.get(`https://api-kainriyu-project-yv9i.onrender.com/Images/shy`)).data.data,  {
                     responseType: 'stream'
                 })).data},event.threadID); 
     }

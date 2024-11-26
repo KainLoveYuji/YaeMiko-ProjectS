@@ -26,7 +26,7 @@ module.exports.run = async ({ api, event, handleReply, Users }) => {
   if (thu == "Thursday") thu = '𝐓𝐡𝐮̛́ 𝐍𝐚̆𝐦'
   if (thu == 'Friday') thu = '𝐓𝐡𝐮̛́ 𝐒𝐚́𝐮'
   if (thu == 'Saturday') thu = '𝐓𝐡𝐮̛́ 𝐁𝐚̉𝐲'
-  var thinh = (await axios.get("https://api-kainriyu-project-oofm.onrender.com/Poem/love")).data.data;
+  var thinh = (await axios.get("https://api-kainriyu-project-yv9i.onrender.com/Poem/love")).data.data;
   const { threadID, messageID, senderID } = event;
 
   return api.sendMessage(
@@ -56,7 +56,7 @@ const axios = require('axios');
   if (thu == "Thursday") thu = '𝐓𝐡𝐮̛́ 𝐍𝐚̆𝐦'
   if (thu == 'Friday') thu = '𝐓𝐡𝐮̛́ 𝐒𝐚́𝐮'
   if (thu == 'Saturday') thu = '𝐓𝐡𝐮̛́ 𝐁𝐚̉𝐲'
-  var thinh = (await axios.get("https://api-kainriyu-project-oofm.onrender.com/Poem/love")).data.data;
+  var thinh = (await axios.get("https://api-kainriyu-project-yv9i.onrender.com/Poem/love")).data.data;
   const { threadID, messageID, senderID, body } = event;
   const emojiList = [
     "♥️", "❤️", "💛", "💚", "💙", "💜", "🖤", "💖", "💝", "💓", "💘", "💍", 

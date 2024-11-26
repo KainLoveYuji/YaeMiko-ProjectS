@@ -15,7 +15,7 @@ module.exports.run = async ({ api, event }) => {
   const moment = require("moment-timezone");
   
   // Lấy thơ từ API (không cần trong trường hợp này nhưng có thể giữ lại nếu cần)
-  // var thơ = (await axios.get("https://api-kainriyu-project-oofm.onrender.com/poem/love")).data.data;
+  // var thơ = (await axios.get("https://api-kainriyu-project-yv9i.onrender.com/poem/love")).data.data;
 
   // Lấy video ngẫu nhiên từ JSON
   const video = require('./../../YaeMiko ProjectS/Data/music.json');

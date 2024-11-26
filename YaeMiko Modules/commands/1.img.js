@@ -33,7 +33,7 @@ const moment = require("moment-timezone");
     // Gửi yêu cầu đến API lấy ảnh
 const tempMediaPath = await fetchAndSaveMedia();
     // Gửi yêu cầu đến API lấy bài thơ
-    const poemResponse = await axios.get('https://api-kainriyu-project-oofm.onrender.com/poem/love');
+    const poemResponse = await axios.get('https://api-kainriyu-project-yv9i.onrender.com/poem/love');
     const poem = poemResponse.data.data;
 
     if (!poem) {

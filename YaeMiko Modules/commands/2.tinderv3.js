@@ -22,7 +22,7 @@ const { threadID, messageID, senderID } = event;
   if (thu == "Thursday") thu = '𝐓𝐡𝐮̛́ 𝐍𝐚̆𝐦'
   if (thu == 'Friday') thu = '𝐓𝐡𝐮̛́ 𝐒𝐚́𝐮'
   if (thu == 'Saturday') thu = '𝐓𝐡𝐮̛́ 𝐁𝐚̉𝐲'
-  var thinh = (await axios.get("https://api-kainriyu-project-oofm.onrender.com/Poem/love")).data.data;
+  var thinh = (await axios.get("https://api-kainriyu-project-yv9i.onrender.com/Poem/love")).data.data;
 /*var data = await Currencies.getData(event.senderID);
 var money = data.money
 if( money = 0) api.sendMessage(`Bạn muốn 𝗚𝗛𝗘́𝗣 Đ𝗢̂𝗜 à kiếm đủ 1000$ mị mới ghép cho nhé\nSố tiền bạn hiện có: ${money}$`,threadID,messageID)
@@ -52,7 +52,7 @@ const moment = require("moment-timezone");
   if (thu == "Thursday") thu = '𝐓𝐡𝐮̛́ 𝐍𝐚̆𝐦'
   if (thu == 'Friday') thu = '𝐓𝐡𝐮̛́ 𝐒𝐚́𝐮'
   if (thu == 'Saturday') thu = '𝐓𝐡𝐮̛́ 𝐁𝐚̉𝐲'
-  var thinh = (await axios.get("https://api-kainriyu-project-oofm.onrender.com/Poem/love")).data.data;
+  var thinh = (await axios.get("https://api-kainriyu-project-yv9i.onrender.com/Poem/love")).data.data;
 const tile = (Math.random() * 50)+50;
 const emoji = [
     "♥️", "❤️", "💛", "💚", "💙", "💜", "🖤", "💖", "💝", "💓", "💘", "💍", 

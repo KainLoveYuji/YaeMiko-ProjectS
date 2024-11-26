@@ -21,7 +21,7 @@ module.exports.run = async ({ api, event, args }) => {
 
     // Kết nối các từ và thay thế khoảng trắng bằng %20
     const characterName = args.join(" ").replace(/\s+/g, "%20");
-    const apiUrl = `https://api-kainriyu-project-oofm.onrender.com/Hoyoverse/GenshinImpact/${characterName}`;
+    const apiUrl = `https://api-kainriyu-project-yv9i.onrender.com/Hoyoverse/GenshinImpact/${characterName}`;
 
     try {
         const response = await axios.get(apiUrl);

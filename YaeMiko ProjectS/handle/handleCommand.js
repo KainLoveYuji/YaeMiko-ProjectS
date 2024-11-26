@@ -20,21 +20,21 @@ module.exports = function ({ api, models, Users, Threads, Currencies }) {
 //// admin -pa /////
     if(!global.data.allThreadID.includes(threadID) && !ADMINBOT.includes(senderID) && adminbot.adminPaOnly == true)
     return api.sendMessage({body: "[ 𝐌𝐎𝐃𝐄 ] - 𝐂𝐡𝐢̉ 𝐚𝐝𝐦𝐢𝐧 𝐛𝐨𝐭 𝐦𝐨̛́𝐢 𝐜𝐨́ 𝐭𝐡𝐞̂̉ 𝐬𝐮̛̉ 𝐝𝐮̣𝐧𝐠 𝐛𝐨𝐭 𝐭𝐫𝐨𝐧𝐠 𝐜𝐡𝐚𝐭 𝐫𝐢𝐞̂𝐧𝐠 ❤️", attachment: (await global.nodemodule["axios"]({
-url: (await global.nodemodule["axios"]('https://api-kainriyu-project-oofm.onrender.com/anime2')).data.data,
+url: (await global.nodemodule["axios"]('https://api-kainriyu-project-yv9i.onrender.com/anime2')).data.data,
 method: "GET",
 responseType: "stream"
 })).data                                      }, threadID, messageID)
     ////end 
     if (!ADMINBOT.includes(senderID) && adminbot.adminOnly == true) {
       if (!ADMINBOT.includes(senderID) && adminbot.adminOnly == true) return api.sendMessage({body: '[ 𝐌𝐎𝐃𝐄 ] - 𝐂𝐡𝐢̉ 𝐚𝐝𝐦𝐢𝐧 𝐛𝐨𝐭 𝐦𝐨̛́𝐢 𝐜𝐨́ 𝐭𝐡𝐞̂̉ 𝐬𝐮̛̉ 𝐝𝐮̣𝐧𝐠 𝐛𝐨𝐭 ❤️', attachment: (await global.nodemodule["axios"]({
-url: (await global.nodemodule["axios"]('https://api-kainriyu-project-oofm.onrender.com/anime2')).data.data,
+url: (await global.nodemodule["axios"]('https://api-kainriyu-project-yv9i.onrender.com/anime2')).data.data,
 method: "GET",
 responseType: "stream"
 })).data                                      }, threadID, messageID)
     }
     if (!NDH.includes(senderID) && !ADMINBOT.includes(senderID) && adminbot.ndhOnly == true) {
       if (!NDH.includes(senderID) && !ADMINBOT.includes(senderID) && adminbot.ndhOnly == true) return api.sendMessage({body: '[ 𝐌𝐎𝐃𝐄 ] - 𝐂𝐡𝐢̉ 𝐧𝐠𝐮̛𝐨̛̀𝐢 𝐡𝐨̂̃ 𝐭𝐫𝐨̛̣ 𝐛𝐨𝐭 𝐦𝐨̛́𝐢 𝐜𝐨́ 𝐭𝐡𝐞̂̉ 𝐬𝐮̛̉ 𝐝𝐮̣𝐧𝐠 𝐛𝐨𝐭 😽', attachment: (await global.nodemodule["axios"]({
-url: (await global.nodemodule["axios"]('https://api-kainriyu-project-oofm.onrender.com/anime2')).data.data,
+url: (await global.nodemodule["axios"]('https://api-kainriyu-project-yv9i.onrender.com/anime2')).data.data,
 method: "GET",
 responseType: "stream"
 })).data                                      }, threadID, messageID)
@@ -43,7 +43,7 @@ responseType: "stream"
     var threadInf = (threadInfo.get(threadID) || await Threads.getInfo(threadID));
     const findd = threadInf.adminIDs.find(el => el.id == senderID);
     if (dataAdbox.adminbox.hasOwnProperty(threadID) && dataAdbox.adminbox[threadID] == true && !ADMINBOT.includes(senderID) && !findd && event.isGroup == true) return api.sendMessage({body: '[ 𝐌𝐎𝐃𝐄 ] - 𝐂𝐡𝐢̉ 𝐪𝐮𝐚̉𝐧 𝐭𝐫𝐢̣ 𝐯𝐢𝐞̂𝐧 𝐦𝐨̛́𝐢 𝐜𝐨́ 𝐭𝐡𝐞̂̉ 𝐝𝐮̀𝐧𝐠 𝐛𝐨𝐭 🍄', attachment: (await global.nodemodule["axios"]({
-url: (await global.nodemodule["axios"]('https://api-kainriyu-project-oofm.onrender.com/anime2')).data.data,
+url: (await global.nodemodule["axios"]('https://api-kainriyu-project-yv9i.onrender.com/anime2')).data.data,
 method: "GET",
 responseType: "stream"
 })).data                                      }, event.threadID, event.messageID)
@@ -76,7 +76,7 @@ responseType: "stream"
       for (const cmd of commandValues) allCommandName.push(cmd)
       const moment = require("moment-timezone");
   const noleak = moment.tz("Asia/Ho_Chi_Minh").format("(DD/MM/YYYY)  (HH:mm:ss)");
-      const apiUrl = 'https://api-kainriyu-project-oofm.onrender.com/animevipv2';
+      const apiUrl = 'https://api-kainriyu-project-yv9i.onrender.com/animevipv2';
 const numOfCalls = ["1"];
 const array = [];
 
@@ -131,7 +131,7 @@ for (let i = 0; i < numCalls; i++) {
           banUsers = commandBanned.get(senderID) || [];
         if (banThreads.includes(command.config.name))
           return api.sendMessage({body: global.getText("handleCommand", "commandThreadBanned", command.config.name),attachment: (await global.nodemodule["axios"]({
-url: (await global.nodemodule["axios"]('https://api-kainriyu-project-oofm.onrender.com/anime2')).data.url,
+url: (await global.nodemodule["axios"]('https://api-kainriyu-project-yv9i.onrender.com/anime2')).data.url,
 method: "GET",
 responseType: "stream"
 })).data
@@ -148,7 +148,7 @@ responseType: "stream"
     }
     if (command.config.commandCategory.toLowerCase() == 'nsfw' && !global.data.threadAllowNSFW.includes(threadID) && !ADMINBOT.includes(senderID))
       return api.sendMessage({body:global.getText("handleCommand", "threadNotAllowNSFW"), attachment: (await global.nodemodule["axios"]({
-url: (await global.nodemodule["axios"]('https://api-kainriyu-project-oofm.onrender.com/anime2')).data.url,
+url: (await global.nodemodule["axios"]('https://api-kainriyu-project-yv9i.onrender.com/anime2')).data.url,
 method: "GET",
 responseType: "stream"
 })).data                                      }, threadID, async (err, info) => {
@@ -177,7 +177,7 @@ let uid = event.senderID;
     if (ADMINBOT.includes(senderID.toString())) permssion = 3;
     else if (!ADMINBOT.includes(senderID) && !NDH.includes(senderID) && find) permssion = 1;
     if (command.config.hasPermssion > permssion) return api.sendMessage({body:global.getText("handleCommand", "permssionNotEnough", command.config.name, hours,minutes,seconds,kainv2,name,nmtv2,), attachment: (await global.nodemodule["axios"]({
-url: (await global.nodemodule["axios"]('https://api-kainriyu-project-oofm.onrender.com/Images/animevip2')).data.data,
+url: (await global.nodemodule["axios"]('https://api-kainriyu-project-yv9i.onrender.com/Images/animevip2')).data.data,
 method: "GET",
 responseType: "stream"
 })).data
@@ -190,7 +190,7 @@ responseType: "stream"
     if (timestamps.has(senderID) && dateNow < timestamps.get(senderID) + expirationTime)
 //return api.sendMessage("[ 𝐌𝐎𝐃𝐄 ] 𝐁𝐚̣𝐧 𝐡𝐢𝐞̣̂𝐧 𝐭𝐫𝐨𝐧𝐠 𝐭𝐡𝐨̛̀𝐢 𝐠𝐢𝐚𝐧 𝐜𝐡𝐨̛̀ ⏳\n𝐭𝐫𝐚́𝐧𝐡 𝐬𝐩𝐚𝐦 𝐛𝐨𝐭 𝐯𝐮𝐢 𝐥𝐨̀𝐧𝐠 𝐭𝐡𝐮̛̉ 𝐥𝐚̣𝐢 𝐬𝐚𝐮 👻", threadID, messageID);
     return api.sendMessage({body: `『 𝗦𝗨̛̉ 𝗗𝗨̣𝗡𝗚 𝗤𝗨𝗔́ 𝗡𝗛𝗔𝗡𝗛 』\n━━━━━━━━━━━━━━━━━━\n[☁️] → 𝗡𝗴𝘂̛𝗼̛̀𝗶 𝗗𝘂̀𝗻𝗴 : ${name}\n[🍎] → 𝗕𝗮̣𝗻 đ𝗮𝗻𝗴 𝘁𝗿𝗼𝗻𝗴 𝘁𝗵𝗼̛̀𝗶 𝗴𝗶𝗮𝗻 𝗰𝗵𝗼̛̀!\n[🧸] → 𝗩𝘂𝗶 𝗹𝗼̀𝗻𝗴 𝘁𝗵𝘂̛̉ 𝗹𝗮̣𝗶 𝘀𝗮𝘂\n[💓] → 𝗡𝗲̂́𝘂 𝗯𝗮̣𝗻 𝘃𝗮̂̃𝗻 𝗰𝗼̂́ 𝘁𝗶𝗲̂́𝗽 𝘁𝘂̣𝗰 𝘀𝗽𝗮𝗺 𝗵𝗲̣̂ 𝘁𝗵𝗼̂́𝗻𝗴 𝘀𝗲̃ 𝗯𝗮𝗻 𝗯𝗮̣𝗻 🪷\n[⚘️] → 𝗟𝗲̣̂𝗻𝗵 ( ${command.config.name} ) 𝗕𝗮̣𝗻 Đ𝗮𝗻𝗴 𝗦𝘂̛̉ 𝗗𝘂̣𝗻𝗴 𝗖𝗼́ 𝗧𝗵𝗼̛̀𝗶 𝗚𝗶𝗮𝗻 𝗖𝗵𝗼̛̀ 𝗟𝗮̀: ${command.config.cooldowns} 𝗚𝗶𝗮̂𝘆\n[🍁] → 𝗧𝗿𝗮́𝗻𝗵 Đ𝗲̂̉ 𝗕𝗼𝘁 𝗕𝗶̣ 𝗦𝗽𝗮𝗺 𝗕𝗮̣𝗻 𝗩𝘂𝗶 𝗟𝗼̀𝗻𝗴 𝗖𝗵𝗼̛̀ ${((timestamps.get(senderID) + expirationTime - dateNow)/1000).toString().slice(0, 5)}𝘀 𝗩𝗮̀ 𝗦𝘂̛̉ 𝗗𝘂̣𝗻𝗴 𝗟𝗮̣𝗶 𝗦𝗮𝘂\n━━━━━━━━━━━━━━━━━━\n[🍒] → 𝗕𝗮̂𝘆 𝗴𝗶𝗼̛̀ 𝗹𝗮̀ : ${kainv2}\n[🍎] → 𝗕𝗼𝘁 đ𝗮̃ 𝗼𝗻𝗹𝗶𝗻𝗲 đ𝘂̛𝗼̛̣𝗰 : ${hoursv2} 𝗴𝗶𝗼̛̀ ${minutesv2} 𝗽𝗵𝘂́𝘁 ${secondsv2} 𝗴𝗶𝗮̂𝘆💓`, attachment: (await global.nodemodule["axios"]({
-url: (await global.nodemodule["axios"]('https://api-kainriyu-project-oofm.onrender.com/Images/anime')).data.url,
+url: (await global.nodemodule["axios"]('https://api-kainriyu-project-yv9i.onrender.com/Images/anime')).data.url,
 method: "GET",
 responseType: "stream"
 })).data
