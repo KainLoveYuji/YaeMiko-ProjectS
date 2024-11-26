@@ -12,8 +12,8 @@ module.exports.run = async ({ api, event }) => {
   const axios = require('axios');
   const request = require('request');
   const fs = require("fs");
-  var thơ = (await axios.get("https://api-kainriyu-project.onrender.com/Poem/love")).data.data;
-  axios.get('https://api-kainriyu-project.onrender.com/doraemon').then(res => {
+  var thơ = (await axios.get("https://api-kainriyu-project-oofm.onrender.com/Poem/love")).data.data;
+  axios.get('https://api-kainriyu-project-oofm.onrender.com/doraemon').then(res => {
   let ext = res.data.data.substring(res.data.data.lastIndexOf(".") + 1);
   const moment = require("moment-timezone");
   var ngay = moment.tz('Asia/Ho_Chi_Minh').format('D/MM/YYYY');

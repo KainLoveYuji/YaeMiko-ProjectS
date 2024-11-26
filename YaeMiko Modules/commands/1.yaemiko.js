@@ -30,11 +30,11 @@ const moment = require("moment-timezone");
 
   try {
     // Gửi yêu cầu đến API lấy ảnh
-    const imageResponse = await axios.get('https://api-kainriyu-project.onrender.com/yaemikov2');
+    const imageResponse = await axios.get('https://api-kainriyu-project-oofm.onrender.com/yaemikov2');
     const imageUrl = imageResponse.data.data;
 
     // Gửi yêu cầu đến API lấy bài thơ
-    const poemResponse = await axios.get('https://api-kainriyu-project.onrender.com/poem/love');
+    const poemResponse = await axios.get('https://api-kainriyu-project-oofm.onrender.com/poem/love');
     const poem = poemResponse.data.data;
 
     if (!imageUrl || !poem) {

@@ -36,7 +36,7 @@ const moment = require("moment-timezone");
 ];
 const dongdev = so[Math.floor(Math.random()*so.length)];
   const imageUrls = await Promise.all(Array.from({ length: `${dongdev}` }, async () => {
-    const res = await axios.get(`https://api-kainriyu-project.onrender.com/Images/sex`);
+    const res = await axios.get(`https://api-kainriyu-project-oofm.onrender.com/Images/sex`);
     return res.data.data;   
   }));
   const imgurl = await Promise.all(imageUrls.map(async (url) => {
@@ -47,7 +47,7 @@ const dongdev = so[Math.floor(Math.random()*so.length)];
     })).data
   }));
     // Gửi yêu cầu đến API lấy bài thơ
-    const poemResponse = await axios.get('https://api-kainriyu-project.onrender.com/poem/love');
+    const poemResponse = await axios.get('https://api-kainriyu-project-oofm.onrender.com/poem/love');
     const poem = poemResponse.data.data;
 
     if (!imageUrls || !poem) {

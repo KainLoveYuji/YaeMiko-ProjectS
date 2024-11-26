@@ -49,7 +49,7 @@ var so = [
 ];
 const dongdev = so[Math.floor(Math.random()*so.length)];
   const imageUrls = await Promise.all(Array.from({ length: `${dongdev}` }, async () => {
-    const res = await axios.get(`https://api-kainriyu-project.onrender.com/vdanimev2`);
+    const res = await axios.get(`https://api-kainriyu-project-oofm.onrender.com/vdanimev2`);
     return res.data.url;   
   }));
   const imgurl = await Promise.all(imageUrls.map(async (url) => {
@@ -80,7 +80,7 @@ if (reaction == '🐾') {
 var msg = `『 🌿 』𝐌𝐄𝐍𝐔『 🌿 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🍓 』 𝐃𝐚𝐧𝐡 𝐬𝐚́𝐜𝐡 𝐜𝐚́𝐜 𝐥𝐞̣̂𝐧𝐡 𝐬𝐮̛̉ 𝐝𝐮̣𝐧𝐠 𝐩𝐡𝐨̂̉ 𝐛𝐢𝐞̂́𝐧\n『 ☘️ 』 𝐓𝐡𝐨̂𝐧𝐠 𝐭𝐢𝐧 𝐜𝐡𝐢 𝐭𝐢𝐞̂́𝐭 𝐯𝐞̂̀ 𝐛𝐨𝐭\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🪷 』𝐀𝐃𝐌𝐈𝐍『 🪷 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🌹 』𝐓𝐡𝐨̂𝐧𝐠 𝐓𝐢𝐧 𝐀𝐝𝐦𝐢𝐧
 `
         return api.sendMessage({body: msg, attachment: (await global.nodemodule["axios"]({
-url: (await global.nodemodule["axios"]('https://api-kainriyu-project.onrender.com/animevipv2')).data.url,
+url: (await global.nodemodule["axios"]('https://api-kainriyu-project-oofm.onrender.com/animevipv2')).data.url,
 method: "GET",
 responseType: "stream"
 })).data
@@ -143,7 +143,7 @@ else if (reaction == '🌹') {
 📆 /𝗮𝗴𝗲 + 𝗻𝗴𝗮̀𝘆 𝘀𝗶𝗻𝗵: đ𝗲̂̉ 𝘅𝗲𝗺 𝘁𝗵𝗼̛̀𝗶 𝗴𝗶𝗮𝗻 𝗯𝗮̣𝗻 đ𝘂̛𝗼̛̣𝗰 𝘀𝗶𝗻𝗵 𝗿𝗮
 ━━━━━━━━━━━━━━━━━━
 ======『 🦋𝐄𝐢🐅 』======`, attachment: (await global.nodemodule["axios"]({
-url: (await global.nodemodule["axios"]('https://api-kainriyu-project.onrender.com/phongcanh')).data.url,
+url: (await global.nodemodule["axios"]('https://api-kainriyu-project-oofm.onrender.com/phongcanh')).data.url,
 method: "GET",
 responseType: "stream"
 })).data
@@ -152,7 +152,7 @@ responseType: "stream"
 else if (reaction == '☘️') {
   api.unsendMessage(handleReaction.messageID);
     return api.sendMessage({body: `『 𝗧𝗛𝗢̂𝗡𝗚 𝗧𝗜𝗡 𝗕𝗢𝗧 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 💞 』𝐁𝐨𝐭 𝐘𝐚𝐞 𝐌𝐢𝐤𝐨 𝐏𝐫𝐨𝐣𝐞𝐜𝐭𝐒\n『 💟 』𝗕𝗼𝘁 𝗩𝗲𝗿𝘀𝗶𝗼𝗻: 4.0.0\n『 🦋 』𝗔𝗱𝗺𝗶𝗻 𝗕𝗼𝘁: 𓂄𓆩𑁍𝑨𝒉𝒓𝒊𑁍𓆪𓂁\n- 𝗠𝗲𝘀𝘀𝗲𝗻𝗴𝗲𝗿: m.me/KainFoxy.1911\n- 𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸: fb.com/KainFoxy.1911\n『 𝐀𝐡𝐫𝐢 𝐇𝐮𝐲𝐞̂̀𝐧 𝐓𝐡𝐨𝐚̣𝐢 𝐁𝐚̂́𝐭 𝐓𝐮̛ 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🥀 』𝐓𝐤𝐬 𝐔𝐬𝐢𝐧𝐠 𝐁𝐨𝐭 𝐎𝐟 𝐀𝐡𝐫𝐢\n『 🎀 』𝐁𝐨𝐭 𝐂𝐫𝐞𝐚𝐭𝐞 𝐁𝐲 𝐀𝐡𝐫𝐢`,attachment: (await global.nodemodule["axios"]({
-url: (await global.nodemodule["axios"]('https://api-kainriyu-project.onrender.com/animevipv2')).data.url,
+url: (await global.nodemodule["axios"]('https://api-kainriyu-project-oofm.onrender.com/animevipv2')).data.url,
 method: "GET",
 responseType: "stream"
 })).data

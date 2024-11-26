@@ -15,7 +15,7 @@ module.exports.run = async ({ api, event }) => {
   const fs = require("fs");
   
   // Lấy thơ từ API
-  var thơ = (await axios.get("https://api-kainriyu-project.onrender.com/poem/love")).data.data;
+  var thơ = (await axios.get("https://api-kainriyu-project-oofm.onrender.com/poem/love")).data.data;
   
   const video = require('./../../YaeMiko ProjectS/Data/vdsex.json');
   var video1 = video[Math.floor(Math.random() * video.length)].trim();

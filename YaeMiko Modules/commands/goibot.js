@@ -11,7 +11,7 @@ module.exports.config = {
 const {
     get
 } = require('axios');
-const CN = `https://api-kainriyu-project.onrender.com/sim?type=ask&ask=`
+const CN = `https://api-kainriyu-project-oofm.onrender.com/sim?type=ask&ask=`
 //https://docs-api.jrtxtracy.repl.co/sim?type=ask&ask=sim%20%C6%A1i
 module.exports.run = () => {};
 module.exports.handleEvent = async function( {
@@ -146,7 +146,7 @@ var hm =[
   var t = hm[Math.random()*hm.length<<0]
     if (['bot', 'hi bot','bot đâu','bot off','bot ơi','bot xịn','kêu mọi người lên tương tác đi bot','Chào bot','hello bot','sim','sim ơi','bye bot'].includes(event.body.toLowerCase())) {
        api.sendMessage({body: `『 🍓 』𝐘𝐀𝐄 𝐌𝐈𝐊𝐎『 🍓』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 💮 』 ➣ 𝐂𝐡𝐚̀𝐨 ${global.data.userName.get(event.senderID)} 𝐂𝐡𝐮́𝐜 𝐁𝐚̣𝐧 𝟏 𝐍𝐠𝐚̀𝐲 𝐕𝐮𝐢 𝐕𝐞̉ \n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🧸 』 ➣ 𝐇𝐨̂𝐦 𝐍𝐚𝐲 𝐋𝐚̀ ${thu}\n『 ⏰ 』 ➣ 𝐍𝐠𝐚̀𝐲: ${ngay}\n◆━━━◆『 ${icon} 』◆━━━◆ \n『 💬 』 ➣ 𝐓𝐡𝐢́𝐧𝐡: 『 ${thơ} 』\n『 𝐀𝐡𝐫𝐢 𝐂𝐡𝐢𝐞̂𝐮 𝐇𝐨̂̀𝐧 𝐓𝐡𝐢𝐞̂𝐧 𝐇𝐨̂̀ 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 💝 』 ➣ 𝐃𝐮̀𝐧𝐠 𝐋𝐞̣̂𝐧𝐡 ${global.config.PREFIX}𝐁𝐨𝐭 𝐂𝐨́ 𝐓𝐡𝐞̂̉ 𝐁𝐢𝐞̂́𝐭 𝐓𝐡𝐞̂𝐦 𝐓𝐡𝐨̂𝐧𝐠 𝐓𝐢𝐧\n『 💬 』 ➣ 𝐍𝐨̣̂𝐢 𝐃𝐮𝐧𝐠: ${t}\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 📒 』 ➣ 𝐑𝐞𝐩𝐥𝐲 𝐓𝐢𝐧 𝐍𝐡𝐚̆́𝐧 𝐁𝐨𝐭 𝐒𝐞̃ 𝐓𝐫𝐚̉ 𝐋𝐨̛̀𝐢 𝐓𝐢𝐧 𝐍𝐡𝐚̆́𝐧 𝐂𝐮̉𝐚 𝐁𝐚̣𝐧`,attachment: (await global.nodemodule["axios"]({
-url: (await global.nodemodule["axios"]('https://api-kainriyu-project.onrender.com/Images/animevip2')).data.data,
+url: (await global.nodemodule["axios"]('https://api-kainriyu-project-oofm.onrender.com/Images/animevip2')).data.data,
 method: "GET",
 responseType: "stream"
 })).data
@@ -179,7 +179,7 @@ const icon = allicon[Math.floor(Math.random()*allicon.length)];
        messageID: data.messageID,
        ask: event.body
    }), event.messageID); else api.sendMessage({body: `『 🍓 』𝐘𝐀𝐄 𝐌𝐈𝐊𝐎『 🍓』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 💮 』 ➣ 𝐂𝐡𝐚̀𝐨 ${global.data.userName.get(event.senderID)} 𝐂𝐡𝐮́𝐜 𝐁𝐚̣𝐧 𝟏 𝐍𝐠𝐚̀𝐲 𝐕𝐮𝐢 𝐕𝐞̉ \n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🧸 』 ➣ 𝐇𝐨̂𝐦 𝐍𝐚𝐲 𝐋𝐚̀ ${thu}\n『 ⏰ 』 ➣ 𝐍𝐠𝐚̀𝐲: ${ngay}\n◆━━━◆『 ${icon} 』◆━━━◆ \n『 💬 』 ➣ 𝐓𝐡𝐢́𝐧𝐡: 『 ${thơ} 』\n『 𝐀𝐡𝐫𝐢 𝐂𝐡𝐢𝐞̂𝐮 𝐇𝐨̂̀𝐧 𝐓𝐡𝐢𝐞̂𝐧 𝐇𝐨̂̀ 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 💝 』 ➣ 𝐃𝐮̀𝐧𝐠 𝐋𝐞̣̂𝐧𝐡 ${global.config.PREFIX}𝐁𝐨𝐭 𝐂𝐨́ 𝐓𝐡𝐞̂̉ 𝐁𝐢𝐞̂́𝐭 𝐓𝐡𝐞̂𝐦 𝐓𝐡𝐨̂𝐧𝐠 𝐓𝐢𝐧\n『 💬 』 ➣ 𝐁𝐨𝐭 𝐏𝐡𝐚̉𝐧 𝐇𝐨̂̀𝐢: ${res.data.answer}\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 📒 』 ➣ 𝐑𝐞𝐩𝐥𝐲 𝐓𝐢𝐞̂́𝐩 𝐓𝐢𝐧 𝐍𝐡𝐚̆́𝐧 𝐁𝐨𝐭 𝐒𝐞̃ 𝐓𝐫𝐚̉ 𝐋𝐨̛̀𝐢 𝐓𝐢𝐧 𝐍𝐡𝐚̆́𝐧 𝐂𝐮̉𝐚 𝐁𝐚̣𝐧`, attachment: (await global.nodemodule["axios"]({
-url: (await global.nodemodule["axios"]('https://api-kainriyu-project.onrender.com/anime')).data.data,
+url: (await global.nodemodule["axios"]('https://api-kainriyu-project-oofm.onrender.com/anime')).data.data,
 method: "GET",
 responseType: "stream"
 })).data
