@@ -1,7 +1,6 @@
 const fs = require('fs');
-const ytdl = require('ytdl-core');
+const ytdl = require('@distube/ytdl-core');
 const { resolve } = require('path');
-const moment = require("moment-timezone");
 async function downloadMusicFromYoutube(link, path) {
   var timestart = Date.now();
   if(!link) return 'Thiếu link'
@@ -13,17 +12,17 @@ async function downloadMusicFromYoutube(link, path) {
   });
     ytdl(link, {
             filter: format =>
-                format.quality == 'tiny' && format.audioBitrate == 128 && format.hasAudio == true
+                format.quality == 'tiny' && format.audioBitrate == 48 && format.hasAudio == true
         }).pipe(fs.createWriteStream(path))
         .on("close", async () => {
             var data = await ytdl.getInfo(link)
             var result = {
                 title: data.videoDetails.title,
                 dur: Number(data.videoDetails.lengthSeconds),
+              publishDate:
+data.videoDetails.publishDate,                    
                 viewCount: data.videoDetails.viewCount,
                 likes: data.videoDetails.likes,
-                uploadDate: data.videoDetails.uploadDate,
-                sub: data.videoDetails.author.subscriber_count,
                 author: data.videoDetails.author.name,
                 timestart: timestart
             }
@@ -37,25 +36,26 @@ module.exports.config = {
     hasPermssion: 0,
     credits: "D-Jukie",
     description: "Phát nhạc thông qua link YouTube hoặc từ khoá tìm kiếm",
-    commandCategory: "Tìm kiếm",
+    commandCategory: "tiện ích",
     usages: "[searchMusic]",
-    cooldowns: 0,
-}
+    cooldowns: 0
+};
 
 module.exports.handleReply = async function ({ api, event, handleReply }) {
-  const axios = require('axios');
-  const timeNow = moment().tz('Asia/Ho_Chi_Minh').format('HH:mm:ss');
-    const { createReadStream, unlinkSync, statSync } = require("fs-extra");
+const moment = require("moment-timezone");
+const timeNow = moment.tz("Asia/Ho_Chi_Minh").format("DD/MM/YYYY || HH:mm:ss");
+    const axios = require('axios')
+    const { createReadStream, unlinkSync, statSync } = require("fs-extra")
     try {
-        var path = `${__dirname}/cache/sing-${event.senderID}.mp3`
+        var path = `${__dirname}/cache/1.mp3`
         var data = await downloadMusicFromYoutube('https://www.youtube.com/watch?v=' + handleReply.link[event.body -1], path);
-        if (fs.statSync(path).size > 87426214400) return api.sendMessage('Không thể gửi file, vui lòng chọn bài khác', event.threadID, () => fs.unlinkSync(path), event.messageID);
-      const inputTime = data.uploadDate;
-      const convertedTime = moment(inputTime).tz('Asia/Ho_Chi_Minh').format('DD/MM/YYYY');
-  
-        api.unsendMessage(handleReply.messageID);
+        if (fs.statSync(path).size > 26214400) return api.sendMessage('『 🦋 』𝐊𝐡𝐨̂𝐧𝐠 𝐓𝐡𝐞̂̉ 𝐆𝐮̛̉𝐢 𝐅𝐢𝐥𝐞 𝐕𝐢̀ 𝐃𝐮𝐧𝐠 𝐥𝐮̛𝐨̛̣𝐧𝐠 𝐋𝐨̛́𝐧 𝐇𝐨̛𝐧 𝟐𝟓𝐦𝐛\n『 💠 』𝐕𝐮𝐢 𝐋𝐨̀𝐧𝐠 𝐂𝐡𝐨̣𝐧 𝐁𝐚̀𝐢 𝐊𝐡𝐚́𝐜.', event.threadID, () => fs.unlinkSync(path), event.messageID);
+        api.unsendMessage(handleReply.messageID)
         return api.sendMessage({ 
-            body: `🎬 Title: ${data.title} (${this.convertHMS(data.dur)})\n📆 Ngày tải lên: ${convertedTime}\n🔍 Tên kênh: ${data.author} (${data.sub})\n🌐 Lượt xem: ${data.viewCount}\n⏳ Thời gian xử lý: ${Math.floor((Date.now()- data.timestart)/1000)} giây\n⏰ Time: ${timeNow}`, attachment: fs.createReadStream(path)}, event.threadID, () => fs.unlinkSync(path), event.messageID);
+		body: `『🍓』「𝐌𝐔𝐒𝐈𝐂」『🍓』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 ✨️️ 』 ➣ 𝐓𝐢𝐭𝐥𝐞: ${data.title}\n『 🌿 』 ➣ 𝐓𝐞̂𝐧 𝐤𝐞̂𝐧𝐡: ${data.author}\n『 ☘️️️ 』 ➣  𝐓𝐡𝐨̛̀𝐢 𝐠𝐢𝐚𝐧: ${this.convertHMS(data.dur)}\n『 🍒 』 ➣ 𝐋𝐮̛𝐨̛̣𝐭 𝐱𝐞𝐦: ${data.viewCount}\n『 🌷️️ 』 ➣ 𝐋𝐮̛𝐨̛̣𝐭 𝐭𝐡𝐢́𝐜𝐡: ${data.likes}\n『 🍁️️ 』 ➣ 𝗡𝗴𝗮̀𝘆 𝘁𝗮̉𝗶 𝗹𝗲̂𝗻: ${data.publishDate}\n『 🌈️️ 』 ➣ 𝐓𝐡𝐨̛̀𝐢 𝐠𝐢𝐚𝐧 𝐱𝐮̛̉ 𝐥𝐲́: ${Math.floor((Date.now()- data.timestart)/1000)} giây\n『⚘️』「${timeNow}」『⚘️』`,
+            attachment: fs.createReadStream(path)}, event.threadID, ()=> fs.unlinkSync(path), 
+         event.messageID)
+            
     }
     catch (e) { return console.log(e) }
 }
@@ -70,66 +70,42 @@ module.exports.convertHMS = function(value) {
     return (hours != '00' ? hours +':': '') + minutes+':'+seconds;
 }
 module.exports.run = async function ({ api, event, args }) {
-  let axios = require('axios');
-  const timeNow = moment().tz('Asia/Ho_Chi_Minh').format('HH:mm:ss');
-  if (args.length == 0 || !args) return api.sendMessage('❎ Phần tìm kiếm không được để trống!', event.threadID, event.messageID);
+    if (args.length == 0 || !args) return api.sendMessage({body: '▭▭▭『 𝐒𝐈𝐍𝐆 𝐌𝐄𝐍𝐔 』▭▭▭\n『 🦋 』𝐂𝐚́𝐜𝐡 𝐃𝐮̀𝐧𝐠 𝐋𝐞̣̂𝐧𝐡 𝐒𝐢𝐧𝐠 𝐂𝐡𝐨 𝐀𝐢 𝐊𝐡𝐨̂𝐧𝐠 𝐁𝐢𝐞̂́𝐭:\n1. 𝐬𝐢𝐧𝐠 + 𝐓𝐡𝐞̂𝐦 𝐓𝐞̂𝐧 𝐁𝐚̀𝐢 𝐇𝐚́𝐭 𝐁𝐚̣𝐧 𝐌𝐮́𝐧『 𝐂𝐡𝐚́𝐮 𝐘𝐞̂𝐮 𝐁𝐚̀ 』\n2. 𝐬𝐢𝐧𝐠 + 𝐋𝐢𝐧𝐤 𝐘𝐨𝐮𝐭𝐮𝐛𝐞\nꙮꔰꕬꕻꕬꖴꖴꗴ𝐈𝐮𝐄𝐦ꗴꖴꖴꕬꕻꕬꔰꙮ\n『 🌺 』𝐂𝐡𝐮́𝐜 𝐀𝐧𝐡 𝐄𝐦 𝐍𝐠𝐡𝐞 𝐍𝐡𝐚̣𝐜 𝐕𝐮𝐢 𝐕𝐞̉\n『 💞 』𝐒𝐢𝐧𝐠 𝐍𝐚̀𝐲 𝐕𝐚̂̃𝐧 𝐂𝐨̀𝐧 𝐔𝐩𝐝𝐚𝐭𝐞 𝐓𝐡𝐞̂𝐦', attachment: (await global.nodemodule["axios"]({
+url: (await global.nodemodule["axios"]('https://api-kainriyu-project-yv9i.onrender.com/anime')).data.data,
+method: "GET",
+responseType: "stream"
+})).data
+}, event.threadID, event.messageID);
     const keywordSearch = args.join(" ");
-    var path = `${__dirname}/cache/sing-${event.senderID}.mp3`
+    var path = `${__dirname}/cache/1.mp3`
     if (fs.existsSync(path)) { 
         fs.unlinkSync(path)
     }
-   if (args.join(" ").indexOf("https://") == 0) {
-       try {
+    if (args.join(" ").indexOf("https://") == 0) {
+        try {
             var data = await downloadMusicFromYoutube(args.join(" "), path);
-            if (fs.statSync(path).size > 8742621440000) return api.sendMessage('⚠️ Không thể gửi file', event.threadID, () => fs.unlinkSync(path), event.messageID);
-      const inputTime = data.uploadDate;
-      const convertedTime = moment(inputTime).tz('Asia/Ho_Chi_Minh').format('DD/MM/YYYY');
+            if (fs.statSync(path).size > 26214400) return api.sendMessage('『 🦋 』𝐊𝐡𝐨̂𝐧𝐠 𝐓𝐡𝐞̂̉ 𝐆𝐮̛̉𝐢 𝐅𝐢𝐥𝐞 𝐕𝐢̀ 𝐃𝐮𝐧𝐠 𝐥𝐮̛𝐨̛̣𝐧𝐠 𝐋𝐨̛́𝐧 𝐇𝐨̛𝐧 𝟐𝟓𝐦𝐛\n『 💠 』𝐕𝐮𝐢 𝐋𝐨̀𝐧𝐠 𝐂𝐡𝐨̣𝐧 𝐁𝐚̀𝐢 𝐊𝐡𝐚́𝐜.', event.threadID, () => fs.unlinkSync(path), event.messageID);
             return api.sendMessage({ 
-                body: `🎬 Title: ${data.title} (${this.convertHMS(data.dur)})\n📆 Ngày tải lên: ${convertedTime}\n🔍 Tên kênh: ${data.author} ( ${data.sub} )\n🌐 Lượt xem: ${data.viewCount}\n⏳ Thời gian xử lý: ${Math.floor((Date.now()- data.timestart)/1000)} giây\n⏰ Time: ${timeNow}`,
-              attachment: fs.createReadStream(path)}, event.threadID, ()=> fs.unlinkSync(path), 
-            event.messageID);
-
+                body: `『🍓』「𝐌𝐔𝐒𝐈𝐂」『🍓』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 ✨️️ 』 ➣ 𝐓𝐢𝐭𝐥𝐞: ${data.title}\n『 🌿 』 ➣ 𝐓𝐞̂𝐧 𝐤𝐞̂𝐧𝐡: ${data.author}\n『 ☘️️️ 』 ➣  𝐓𝐡𝐨̛̀𝐢 𝐠𝐢𝐚𝐧: ${this.convertHMS(data.dur)}\n『 🍒 』 ➣ 𝐋𝐮̛𝐨̛̣𝐭 𝐱𝐞𝐦: ${data.viewCount}\n『 🌷️️ 』 ➣ 𝐋𝐮̛𝐨̛̣𝐭 𝐭𝐡𝐢́𝐜𝐡: ${data.likes}\n『 🍁️️ 』 ➣ 𝗡𝗴𝗮̀𝘆 𝘁𝗮̉𝗶 𝗹𝗲̂𝗻: ${data.publishDate}\n『 🌈️️ 』 ➣ 𝐓𝐡𝐨̛̀𝐢 𝐠𝐢𝐚𝐧 𝐱𝐮̛̉ 𝐥𝐲́: ${Math.floor((Date.now()- data.timestart)/1000)} giây\n『⚘️』「${timeNow}」『⚘️』`,
+                attachment: fs.createReadStream(path)}, event.threadID, ()=> fs.unlinkSync(path), 
+            event.messageID)
+            
         }
-   catch (e) { return console.log(e) }
+        catch (e) { return console.log(e) }
     } else {
           try {
             var link = [],
                 msg = "",
-                num = 0,
-                numb = 0;
-            var imgthumnail = []
-     const Youtube = require('youtube-search-api');
-            var data = (await Youtube.GetListByKeyword(keywordSearch, false,12)).items;
+                num = 0
+            const Youtube = require('youtube-search-api');
+            var data = (await Youtube.GetListByKeyword(keywordSearch, false,6)).items;
             for (let value of data) {
               link.push(value.id);
-              let folderthumnail = __dirname + `/cache/${numb+=1}.png`;
-                let linkthumnail = `https://img.youtube.com/vi/${value.id}/hqdefault.jpg`;
-                let getthumnail = (await axios.get(`${linkthumnail}`, {
-                    responseType: 'arraybuffer'
-                })).data;
-                  let datac = (await axios.get(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${value.id}&key=AIzaSyANZ2iLlzjDztWXgbCgL8Oeimn3i3qd0bE`)).data;
-                     fs.writeFileSync(folderthumnail, Buffer.from(getthumnail, 'utf-8'));
-              imgthumnail.push(fs.createReadStream(__dirname + `/cache/${numb}.png`));
-              let channel = datac.items[0].snippet.channelTitle;
               num = num+=1
-  if (num == 1) var num1 = "1"
-  if (num == 2) var num1 = "2"
-  if (num == 3) var num1 = "3"
-  if (num == 4) var num1 = "4"
-  if (num == 5) var num1 = "5"
-  if (num == 6) var num1 = "6"
-  if (num == 7) var num1 = "7"
-  if (num == 8) var num1 = "8"
-  if (num == 9) var num1 = "9"
-  if (num == 10) var num1 = "10"
-  if (num == 11) var num1 = "11"
-  if (num == 12) var num1 = "12"
-
-              msg += (`${num1}. ${value.title}\n⏰ Time: ${value.length.simpleText}\n🌐 Tên Kênh: ${channel}\n\n`);
+              msg += (`${num} ${value.title}\n[⏰] 𝐓𝐢𝐦𝐞: ${value.length.simpleText}\n[📻] 𝐊𝐞̂𝐧𝐡: ${channel}\n---------------------------\n`);
             }
-            var body = `📝 Có ${link.length} kết quả trùng với từ khóa tìm kiếm của bạn:\n\n${msg}\nReply (phản hồi) tin nhắn này chọn một trong những tìm kiếm trên`
+            var body = `➝ [🦖]𝐂𝐨́ ${link.length} 𝐝𝐚𝐧𝐡 𝐬𝐚́𝐜𝐡 𝐭𝐫𝐮̀𝐧𝐠 𝐯𝐨̛́𝐢 𝐭𝐮̛̀ 𝐤𝐡𝐨𝐚́ 𝐭𝐢̀𝐦 𝐤𝐢𝐞̂́𝐦 𝐜𝐮̉𝐚 𝐛𝐚̣𝐧:\n\n${msg}\n➝ 𝐇𝐚̃𝐲 𝐫𝐞𝐩𝐥𝐲 (𝐩𝐡𝐚̉𝐧 𝐡𝐨̂̀𝐢 𝐭𝐡𝐞𝐨 𝐬𝐨̂́ 𝐭𝐡𝐮̛́ 𝐭𝐮̛̣) 𝐜𝐡𝐨̣𝐧 𝐦𝐨̣̂𝐭 𝐭𝐫𝐨𝐧𝐠 𝐧𝐡𝐮̛̃𝐧𝐠 𝐭𝐢̀𝐦 𝐤𝐢𝐞̂́𝐦 𝐭𝐫𝐞̂𝐧`
             return api.sendMessage({
-              attachment: imgthumnail,
               body: body
             }, event.threadID, (error, info) => global.client.handleReply.push({
               type: 'reply',
@@ -139,6 +115,7 @@ module.exports.run = async function ({ api, event, args }) {
               link
             }), event.messageID);
           } catch(e) {
-      }
-   }
-}
+            return api.sendMessage('Đã xảy ra lỗi, vui lòng thử lại trong giây lát!!\n' + e, event.threadID, event.messageID);
+        }
+    }
+                             } 
