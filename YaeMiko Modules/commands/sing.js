@@ -1,5 +1,5 @@
 const fs = require('fs'); // vì quá ngu si
-const ytdl = require('ytdl-core');
+const ytdl = require('@distube/ytdl-core');
 const { resolve } = require('path'); // hải óc lul
 async function downloadMusicFromYoutube(link, path) {
   var timestart = Date.now(); // kiếm ni cho tao
