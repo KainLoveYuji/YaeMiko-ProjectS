@@ -1,9 +1,9 @@
-const fs = require('fs');
-const ytdl = require('@distube/ytdl-core');
-const { resolve } = require('path');
+const fs = require('fs'); // vì quá ngu si
+const ytdl = require('ytdl-core');
+const { resolve } = require('path'); // hải óc lul
 async function downloadMusicFromYoutube(link, path) {
-  var timestart = Date.now();
-  if(!link) return 'Thiếu link'
+  var timestart = Date.now(); // kiếm ni cho tao
+  if(!link) return 'Thiếu link' // dcu mày
   var resolveFunc = function () { };
   var rejectFunc = function () { };
   var returnPromise = new Promise(function (resolve, reject) {
@@ -12,15 +12,13 @@ async function downloadMusicFromYoutube(link, path) {
   });
     ytdl(link, {
             filter: format =>
-                format.quality == 'tiny' && format.audioBitrate == 48 && format.hasAudio == true
+                format.quality == 'tiny' && format.audioBitrate == 128 && format.hasAudio == true
         }).pipe(fs.createWriteStream(path))
         .on("close", async () => {
             var data = await ytdl.getInfo(link)
             var result = {
                 title: data.videoDetails.title,
                 dur: Number(data.videoDetails.lengthSeconds),
-              publishDate:
-data.videoDetails.publishDate,                    
                 viewCount: data.videoDetails.viewCount,
                 likes: data.videoDetails.likes,
                 author: data.videoDetails.author.name,
@@ -36,23 +34,21 @@ module.exports.config = {
     hasPermssion: 0,
     credits: "D-Jukie",
     description: "Phát nhạc thông qua link YouTube hoặc từ khoá tìm kiếm",
-    commandCategory: "tiện ích",
+    commandCategory: "𝐓𝐢𝐞̣̂𝐧 𝐈́𝐜𝐡",
     usages: "[searchMusic]",
     cooldowns: 0
 };
 
 module.exports.handleReply = async function ({ api, event, handleReply }) {
-const moment = require("moment-timezone");
-const timeNow = moment.tz("Asia/Ho_Chi_Minh").format("DD/MM/YYYY || HH:mm:ss");
     const axios = require('axios')
     const { createReadStream, unlinkSync, statSync } = require("fs-extra")
     try {
-        var path = `${__dirname}/cache/1.mp3`
+        var path = `${__dirname}/cache/sing.mp3`
         var data = await downloadMusicFromYoutube('https://www.youtube.com/watch?v=' + handleReply.link[event.body -1], path);
-        if (fs.statSync(path).size > 26214400) return api.sendMessage('『 🦋 』𝐊𝐡𝐨̂𝐧𝐠 𝐓𝐡𝐞̂̉ 𝐆𝐮̛̉𝐢 𝐅𝐢𝐥𝐞 𝐕𝐢̀ 𝐃𝐮𝐧𝐠 𝐥𝐮̛𝐨̛̣𝐧𝐠 𝐋𝐨̛́𝐧 𝐇𝐨̛𝐧 𝟐𝟓𝐦𝐛\n『 💠 』𝐕𝐮𝐢 𝐋𝐨̀𝐧𝐠 𝐂𝐡𝐨̣𝐧 𝐁𝐚̀𝐢 𝐊𝐡𝐚́𝐜.', event.threadID, () => fs.unlinkSync(path), event.messageID);
+        if (fs.statSync(path).size > 26214400) return api.sendMessage('『 𝚁𝚘𝚢𝚊𝚕 』  𝚀𝚞𝚊́ 𝟸𝟻𝙼𝙱 𝚁𝚘̂̀𝚒 𝚃𝚑𝚊̆̀𝚗𝚐 𝙻𝚘̂̀𝚗 :)', event.threadID, () => fs.unlinkSync(path), event.messageID);
         api.unsendMessage(handleReply.messageID)
         return api.sendMessage({ 
-		body: `『🍓』「𝐌𝐔𝐒𝐈𝐂」『🍓』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 ✨️️ 』 ➣ 𝐓𝐢𝐭𝐥𝐞: ${data.title}\n『 🌿 』 ➣ 𝐓𝐞̂𝐧 𝐤𝐞̂𝐧𝐡: ${data.author}\n『 ☘️️️ 』 ➣  𝐓𝐡𝐨̛̀𝐢 𝐠𝐢𝐚𝐧: ${this.convertHMS(data.dur)}\n『 🍒 』 ➣ 𝐋𝐮̛𝐨̛̣𝐭 𝐱𝐞𝐦: ${data.viewCount}\n『 🌷️️ 』 ➣ 𝐋𝐮̛𝐨̛̣𝐭 𝐭𝐡𝐢́𝐜𝐡: ${data.likes}\n『 🍁️️ 』 ➣ 𝗡𝗴𝗮̀𝘆 𝘁𝗮̉𝗶 𝗹𝗲̂𝗻: ${data.publishDate}\n『 🌈️️ 』 ➣ 𝐓𝐡𝐨̛̀𝐢 𝐠𝐢𝐚𝐧 𝐱𝐮̛̉ 𝐥𝐲́: ${Math.floor((Date.now()- data.timestart)/1000)} giây\n『⚘️』「${timeNow}」『⚘️』`,
+		body: `\n===『  𝙼𝚄𝚂𝙸𝙲  』===\n『📃』𝚃𝚒𝚝𝚕𝚎 ${data.title}\n『🔍』𝙰𝚞𝚝𝚑𝚘𝚛 ${data.author}\n『⏳』𝚃𝚒𝚖𝚎 ${this.convertHMS(data.dur)}\n『🌐』𝚆𝚒𝚎𝚠 ${data.viewCount}\n『👍』𝙻𝚒𝚔𝚎 ${data.likes}\n『📢』𝙻𝚎̣̂𝚗𝚑 𝙷𝚘̂̃ 𝚃𝚛𝚘̛̣ 𝙲𝚑𝚘 𝙰𝚗𝚍𝚛𝚘𝚒𝚍`,
             attachment: fs.createReadStream(path)}, event.threadID, ()=> fs.unlinkSync(path), 
          event.messageID)
             
@@ -70,23 +66,18 @@ module.exports.convertHMS = function(value) {
     return (hours != '00' ? hours +':': '') + minutes+':'+seconds;
 }
 module.exports.run = async function ({ api, event, args }) {
-    if (args.length == 0 || !args) return api.sendMessage({body: '▭▭▭『 𝐒𝐈𝐍𝐆 𝐌𝐄𝐍𝐔 』▭▭▭\n『 🦋 』𝐂𝐚́𝐜𝐡 𝐃𝐮̀𝐧𝐠 𝐋𝐞̣̂𝐧𝐡 𝐒𝐢𝐧𝐠 𝐂𝐡𝐨 𝐀𝐢 𝐊𝐡𝐨̂𝐧𝐠 𝐁𝐢𝐞̂́𝐭:\n1. 𝐬𝐢𝐧𝐠 + 𝐓𝐡𝐞̂𝐦 𝐓𝐞̂𝐧 𝐁𝐚̀𝐢 𝐇𝐚́𝐭 𝐁𝐚̣𝐧 𝐌𝐮́𝐧『 𝐂𝐡𝐚́𝐮 𝐘𝐞̂𝐮 𝐁𝐚̀ 』\n2. 𝐬𝐢𝐧𝐠 + 𝐋𝐢𝐧𝐤 𝐘𝐨𝐮𝐭𝐮𝐛𝐞\nꙮꔰꕬꕻꕬꖴꖴꗴ𝐈𝐮𝐄𝐦ꗴꖴꖴꕬꕻꕬꔰꙮ\n『 🌺 』𝐂𝐡𝐮́𝐜 𝐀𝐧𝐡 𝐄𝐦 𝐍𝐠𝐡𝐞 𝐍𝐡𝐚̣𝐜 𝐕𝐮𝐢 𝐕𝐞̉\n『 💞 』𝐒𝐢𝐧𝐠 𝐍𝐚̀𝐲 𝐕𝐚̂̃𝐧 𝐂𝐨̀𝐧 𝐔𝐩𝐝𝐚𝐭𝐞 𝐓𝐡𝐞̂𝐦', attachment: (await global.nodemodule["axios"]({
-url: (await global.nodemodule["axios"]('https://api-kainriyu-project-yv9i.onrender.com/anime')).data.data,
-method: "GET",
-responseType: "stream"
-})).data
-}, event.threadID, event.messageID);
+    if (args.length == 0 || !args) return api.sendMessage('『 𝚁𝚘𝚢𝚊𝚕 』 𝙺𝚑𝚘̂𝚗𝚐 𝙱𝚒𝚎̂́𝚝 𝚂𝚊̀𝚒 𝙱𝚘𝚝 𝚃𝚑𝚒̀ 𝙱𝚒𝚎̂́𝚗 ?', event.threadID, event.messageID);
     const keywordSearch = args.join(" ");
-    var path = `${__dirname}/cache/1.mp3`
+    var path = `${__dirname}/cache/sing.mp3`
     if (fs.existsSync(path)) { 
         fs.unlinkSync(path)
     }
     if (args.join(" ").indexOf("https://") == 0) {
         try {
             var data = await downloadMusicFromYoutube(args.join(" "), path);
-            if (fs.statSync(path).size > 26214400) return api.sendMessage('『 🦋 』𝐊𝐡𝐨̂𝐧𝐠 𝐓𝐡𝐞̂̉ 𝐆𝐮̛̉𝐢 𝐅𝐢𝐥𝐞 𝐕𝐢̀ 𝐃𝐮𝐧𝐠 𝐥𝐮̛𝐨̛̣𝐧𝐠 𝐋𝐨̛́𝐧 𝐇𝐨̛𝐧 𝟐𝟓𝐦𝐛\n『 💠 』𝐕𝐮𝐢 𝐋𝐨̀𝐧𝐠 𝐂𝐡𝐨̣𝐧 𝐁𝐚̀𝐢 𝐊𝐡𝐚́𝐜.', event.threadID, () => fs.unlinkSync(path), event.messageID);
+            if (fs.statSync(path).size > 26214400) return api.sendMessage('『 𝚁𝚘𝚢𝚊𝚕 』  𝚀𝚞𝚊́ 𝟸𝟻𝙼𝙱 𝚁𝚘̂̀𝚒 𝚃𝚑𝚊̆̀𝚗𝚐 𝙻𝚘̂̀𝚗 :)', event.threadID, () => fs.unlinkSync(path), event.messageID);
             return api.sendMessage({ 
-                body: `『🍓』「𝐌𝐔𝐒𝐈𝐂」『🍓』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 ✨️️ 』 ➣ 𝐓𝐢𝐭𝐥𝐞: ${data.title}\n『 🌿 』 ➣ 𝐓𝐞̂𝐧 𝐤𝐞̂𝐧𝐡: ${data.author}\n『 ☘️️️ 』 ➣  𝐓𝐡𝐨̛̀𝐢 𝐠𝐢𝐚𝐧: ${this.convertHMS(data.dur)}\n『 🍒 』 ➣ 𝐋𝐮̛𝐨̛̣𝐭 𝐱𝐞𝐦: ${data.viewCount}\n『 🌷️️ 』 ➣ 𝐋𝐮̛𝐨̛̣𝐭 𝐭𝐡𝐢́𝐜𝐡: ${data.likes}\n『 🍁️️ 』 ➣ 𝗡𝗴𝗮̀𝘆 𝘁𝗮̉𝗶 𝗹𝗲̂𝗻: ${data.publishDate}\n『 🌈️️ 』 ➣ 𝐓𝐡𝐨̛̀𝐢 𝐠𝐢𝐚𝐧 𝐱𝐮̛̉ 𝐥𝐲́: ${Math.floor((Date.now()- data.timestart)/1000)} giây\n『⚘️』「${timeNow}」『⚘️』`,
+                body: `\n===『  𝙼𝚄𝚂𝙸𝙲  』===\n『📃』𝚃𝚒𝚝𝚕𝚎 ${data.title}\n『🔍』𝙰𝚞𝚝𝚑𝚘𝚛 ${data.author}\n『⏳』𝚃𝚒𝚖𝚎 ${this.convertHMS(data.dur)}\n『🌐』𝚆𝚒𝚎𝚠 ${data.viewCount}\n『👍』𝙻𝚒𝚔𝚎 ${data.likes}\n『📢』𝙻𝚎̣̂𝚗𝚑 𝙷𝚘̂̃ 𝚃𝚛𝚘̛̣ 𝙲𝚑𝚘 𝙰𝚗𝚍𝚛𝚘𝚒𝚍`,
                 attachment: fs.createReadStream(path)}, event.threadID, ()=> fs.unlinkSync(path), 
             event.messageID)
             
@@ -102,9 +93,9 @@ responseType: "stream"
             for (let value of data) {
               link.push(value.id);
               num = num+=1
-              msg += (`${num} ${value.title}\n[⏰] 𝐓𝐢𝐦𝐞: ${value.length.simpleText}\n[📻] 𝐊𝐞̂𝐧𝐡: ${channel}\n---------------------------\n`);
+              msg += (`${num} - ${value.title} (${value.length.simpleText})\n\n`);
             }
-            var body = `➝ [🦖]𝐂𝐨́ ${link.length} 𝐝𝐚𝐧𝐡 𝐬𝐚́𝐜𝐡 𝐭𝐫𝐮̀𝐧𝐠 𝐯𝐨̛́𝐢 𝐭𝐮̛̀ 𝐤𝐡𝐨𝐚́ 𝐭𝐢̀𝐦 𝐤𝐢𝐞̂́𝐦 𝐜𝐮̉𝐚 𝐛𝐚̣𝐧:\n\n${msg}\n➝ 𝐇𝐚̃𝐲 𝐫𝐞𝐩𝐥𝐲 (𝐩𝐡𝐚̉𝐧 𝐡𝐨̂̀𝐢 𝐭𝐡𝐞𝐨 𝐬𝐨̂́ 𝐭𝐡𝐮̛́ 𝐭𝐮̛̣) 𝐜𝐡𝐨̣𝐧 𝐦𝐨̣̂𝐭 𝐭𝐫𝐨𝐧𝐠 𝐧𝐡𝐮̛̃𝐧𝐠 𝐭𝐢̀𝐦 𝐤𝐢𝐞̂́𝐦 𝐭𝐫𝐞̂𝐧`
+            var body = `»🔎 𝐂𝐨́ ${link.length} 𝐊𝐞̂́𝐭 𝐐𝐮𝐚̉ 𝐓𝐢̀𝐦 𝐊𝐢𝐞̂́𝐦 𝐂𝐮̉𝐚 𝐁𝐚̣𝐧 𝐌𝐨𝐚𝐡:\n\n${msg}» 𝐇𝐚̃𝐲 𝐑𝐞𝐩𝐥𝐲 𝐓𝐫𝐨𝐧𝐠 𝐍𝐡𝐮̛̃𝐧𝐠 𝐓𝐢̀𝐦 𝐊𝐢𝐞̂́𝐦 𝐂𝐮̉𝐚 𝐁𝐚̣𝐧`
             return api.sendMessage({
               body: body
             }, event.threadID, (error, info) => global.client.handleReply.push({
@@ -115,7 +106,7 @@ responseType: "stream"
               link
             }), event.messageID);
           } catch(e) {
-            return api.sendMessage('Đã xảy ra lỗi, vui lòng thử lại trong giây lát!!\n' + e, event.threadID, event.messageID);
-        }
-    }
-                             } 
+            return api.sendMessage('『 𝚁𝚘𝚢𝚊𝚕 』 𝙴𝚛𝚛𝚘𝚛\n' + e, event.threadID, event.messageID);
+        } // đêm qua em tuyệt lắm
+    } // thần la thiên đinhhh
+      } // cục xì lầu ông bê lăc
