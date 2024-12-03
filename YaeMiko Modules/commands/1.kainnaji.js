@@ -72,6 +72,23 @@ api.sendMessage(msg, event.threadID, (err, info) => {
         });
     });
 };
+module.exports.handleReaction = async ({ event, api, handleReaction, Currencies, Users}) => {
+ const moment = require("moment-timezone");
+  const ngay = moment.tz("Asia/Ho_Chi_Minh").format("DD/MM/YYYY");
+  const timeNow = moment.tz("Asia/Ho_Chi_Minh").format("DD/MM/YYYY || HH:mm:ss");
+     var thu = moment.tz('Asia/Ho_Chi_Minh').format('dddd');
+  if (thu == 'Sunday') thu = '𝐂𝐡𝐮̉ 𝐍𝐡𝐚̣̂𝐭'
+  if (thu == 'Monday') thu = '𝐓𝐡𝐮̛́ 𝐇𝐚𝐢'
+  if (thu == 'Tuesday') thu = '𝐓𝐡𝐮̛́ 𝐁𝐚'
+  if (thu == 'Wednesday') thu = '𝐓𝐡𝐮̛́ 𝐓𝐮̛'
+  if (thu == "Thursday") thu = '𝐓𝐡𝐮̛́ 𝐍𝐚̆𝐦'
+  if (thu == 'Friday') thu = '𝐓𝐡𝐮̛́ 𝐒𝐚́𝐮'
+  if (thu == 'Saturday') thu = '𝐓𝐡𝐮̛́ 𝐁𝐚̉𝐲'
+  const poem = require('./../../YaeMiko ProjectS/Poem/love.json');
+  var thơ = poem[Math.floor(Math.random() * poem.length)].trim();
+const axios = global.nodemodule["axios"];
+const fs = global.nodemodule["fs-extra"];
+const { threadID,reaction,messageID, userID } = event;
 if (event.messageID !== handleReaction.messageID || event.senderID !== handleReaction.author) return;
     if (event.reaction !== "🐾") return;
     var so = [
@@ -106,23 +123,7 @@ body: `『 🌿 』𝐌𝐄𝐍𝐔『 🌿 』\n▱▱▱▱▱▱▱▱▱▱�
     }); catch (error) {
     console.error("Error sending message:", error);
 }
-module.exports.handleReaction = async ({ event, api, handleReaction, Currencies, Users}) => {
- const moment = require("moment-timezone");
-  const ngay = moment.tz("Asia/Ho_Chi_Minh").format("DD/MM/YYYY");
-  const timeNow = moment.tz("Asia/Ho_Chi_Minh").format("DD/MM/YYYY || HH:mm:ss");
-     var thu = moment.tz('Asia/Ho_Chi_Minh').format('dddd');
-  if (thu == 'Sunday') thu = '𝐂𝐡𝐮̉ 𝐍𝐡𝐚̣̂𝐭'
-  if (thu == 'Monday') thu = '𝐓𝐡𝐮̛́ 𝐇𝐚𝐢'
-  if (thu == 'Tuesday') thu = '𝐓𝐡𝐮̛́ 𝐁𝐚'
-  if (thu == 'Wednesday') thu = '𝐓𝐡𝐮̛́ 𝐓𝐮̛'
-  if (thu == "Thursday") thu = '𝐓𝐡𝐮̛́ 𝐍𝐚̆𝐦'
-  if (thu == 'Friday') thu = '𝐓𝐡𝐮̛́ 𝐒𝐚́𝐮'
-  if (thu == 'Saturday') thu = '𝐓𝐡𝐮̛́ 𝐁𝐚̉𝐲'
-  const poem = require('./../../YaeMiko ProjectS/Poem/love.json');
-  var thơ = poem[Math.floor(Math.random() * poem.length)].trim();
-const axios = global.nodemodule["axios"];
-const fs = global.nodemodule["fs-extra"];
-const { threadID,reaction,messageID, userID } = event;
+
 if (event.messageID !== handleReaction.messageID || event.senderID !== handleReaction.author) return;
     if (event.reaction !== "🌹") return;
     const video = require('./../../YaeMiko ProjectS/Data/video.json');
