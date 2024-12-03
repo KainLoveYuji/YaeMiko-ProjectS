@@ -121,6 +121,7 @@ body: `『 🌿 』𝐌𝐄𝐍𝐔『 🌿 』\n▱▱▱▱▱▱▱▱▱▱�
             author: event.senderID // Người gửi menu
         });
     }); 
+    };
 if (event.messageID !== handleReaction.messageID || event.senderID !== handleReaction.author) return;
     if (event.reaction !== "🌹") return;
     const video = require('./../../YaeMiko ProjectS/Data/video.json');
