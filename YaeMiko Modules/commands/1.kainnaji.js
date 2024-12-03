@@ -89,8 +89,8 @@ module.exports.handleReaction = async ({ event, api, handleReaction, Currencies,
 const axios = global.nodemodule["axios"];
 const fs = global.nodemodule["fs-extra"];
 const { threadID,reaction,messageID, userID } = event;
-if (event.messageID !== handleReaction.messageID || event.senderID !== handleReaction.author) return;
-    if (event.reaction !== "🐾") return;
+if (reaction == '🐾') {
+  api.unsendMessage(handleReaction.messageID);
     var so = [
   "6"
 ];
