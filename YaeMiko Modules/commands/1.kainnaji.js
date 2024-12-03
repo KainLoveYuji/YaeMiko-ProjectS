@@ -74,12 +74,15 @@ api.sendMessage(msg, event.threadID, (err, info) => {
 };
 if (event.messageID !== handleReaction.messageID || event.senderID !== handleReaction.author) return;
     if (event.reaction !== "🐾") return;
-    const dongdev2 = so[Math.floor(Math.random()*so.length)];
-  const imageUrls2 = await Promise.all(Array.from({ length: `${dongdev}` }, async () => {
-    const res = await axios.get(`https://api-kainriyu-project-yv9i.onrender.com/animvipv2`);
-    return res.data.url;   
+    var so = [
+  "6"
+];
+    const dongdev2 = so2[Math.floor(Math.random()*so2.length)];
+  const imageUrls2 = await Promise.all(Array.from({ length: `${dongdev2}` }, async () => {
+    const res2 = await axios.get(`https://api-kainriyu-project-yv9i.onrender.com/animvipv2`);
+    return res2.data.url;   
   }));
-  const imgurl2 = await Promise.all(imageUrls.map(async (url) => {
+  const imgurl2 = await Promise.all(imageUrls2.map(async (url) => {
     return (await axios({
       url,
       method: "GET",
