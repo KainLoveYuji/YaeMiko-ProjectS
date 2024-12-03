@@ -98,10 +98,10 @@ responseType: "stream"
 })).data
 },event.threadID);
 }
+else if (reaction == '🌹') {
     const video = require('./../../YaeMiko ProjectS/Data/video.json');
   var video1 = video[Math.floor(Math.random() * video.length)].trim();
   const ext = 'mp4';
-else if (reaction == '🌹') {
   api.unsendMessage(handleReaction.messageID);
     return api.sendMessage({body: `『 🪷 』𝐀𝐃𝐌𝐈𝐍『 🪷 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n
 『 🥀 』➣ 𝐓𝐞̂𝐧: Ahri
