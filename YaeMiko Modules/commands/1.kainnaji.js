@@ -98,8 +98,7 @@ responseType: "stream"
 })).data
 },event.threadID);
 }
-    
-      const video = require('./../../YaeMiko ProjectS/Data/video.json');
+    const video = require('./../../YaeMiko ProjectS/Data/video.json');
   var video1 = video[Math.floor(Math.random() * video.length)].trim();
   const ext = 'mp4';
 else if (reaction == '🌹') {
@@ -121,7 +120,6 @@ else if (reaction == '🌹') {
   
   // Tải video từ liên kết và lưu vào cache
   request(video1).pipe(fs.createWriteStream(__dirname + `/cache/adahri.${ext}`)).on("close", callback);
-};
   else if (reaction == '🍓') {
     api.unsendMessage(handleReaction.messageID);
     return api.sendMessage({body: `==== [ 𝐒𝐡𝐢𝐫𝐚𝐨𝐫𝐢🦋 ] ====
