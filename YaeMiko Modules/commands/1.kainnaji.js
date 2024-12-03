@@ -72,13 +72,25 @@ const dongdev = so[Math.floor(Math.random()*so.length)];
     },event.messageID);
      }
 module.exports.handleReaction = async ({ event, api, handleReaction, Currencies, Users}) => {
+ const moment = require("moment-timezone");
+  const ngay = moment.tz("Asia/Ho_Chi_Minh").format("DD/MM/YYYY");
+  const timeNow = moment.tz("Asia/Ho_Chi_Minh").format("DD/MM/YYYY || HH:mm:ss");
+     var thu = moment.tz('Asia/Ho_Chi_Minh').format('dddd');
+  if (thu == 'Sunday') thu = '𝐂𝐡𝐮̉ 𝐍𝐡𝐚̣̂𝐭'
+  if (thu == 'Monday') thu = '𝐓𝐡𝐮̛́ 𝐇𝐚𝐢'
+  if (thu == 'Tuesday') thu = '𝐓𝐡𝐮̛́ 𝐁𝐚'
+  if (thu == 'Wednesday') thu = '𝐓𝐡𝐮̛́ 𝐓𝐮̛'
+  if (thu == "Thursday") thu = '𝐓𝐡𝐮̛́ 𝐍𝐚̆𝐦'
+  if (thu == 'Friday') thu = '𝐓𝐡𝐮̛́ 𝐒𝐚́𝐮'
+  if (thu == 'Saturday') thu = '𝐓𝐡𝐮̛́ 𝐁𝐚̉𝐲'
+  const poem = require('./../../YaeMiko ProjectS/Poem/love.json');
+  var thơ = poem[Math.floor(Math.random() * poem.length)].trim();
 const axios = global.nodemodule["axios"];
 const fs = global.nodemodule["fs-extra"];
 const { threadID,reaction,messageID, userID } = event;
 if (reaction == '🐾') {
   api.unsendMessage(handleReaction.messageID);
-var msg = `『 🌿 』𝐌𝐄𝐍𝐔『 🌿 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🍓 』 𝐃𝐚𝐧𝐡 𝐬𝐚́𝐜𝐡 𝐜𝐚́𝐜 𝐥𝐞̣̂𝐧𝐡 𝐬𝐮̛̉ 𝐝𝐮̣𝐧𝐠 𝐩𝐡𝐨̂̉ 𝐛𝐢𝐞̂́𝐧\n『 ☘️ 』 𝐓𝐡𝐨̂𝐧𝐠 𝐭𝐢𝐧 𝐜𝐡𝐢 𝐭𝐢𝐞̂́𝐭 𝐯𝐞̂̀ 𝐛𝐨𝐭\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🪷 』𝐀𝐃𝐌𝐈𝐍『 🪷 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🌹 』𝐓𝐡𝐨̂𝐧𝐠 𝐓𝐢𝐧 𝐀𝐝𝐦𝐢𝐧
-`
+var msg = `『 🌿 』𝐌𝐄𝐍𝐔『 🌿 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🍓 』 ➣ 𝐃𝐚𝐧𝐡 𝐒𝐚́𝐜𝐡 𝐂𝐚́𝐜 𝐋𝐞̣̂𝐧𝐡 𝐏𝐡𝐨̂̉ 𝐁𝐢𝐞̂́𝐧 𝐓𝐡𝐮̛𝐨̛̀𝐧𝐠 𝐃𝐮̀𝐧𝐠\n『 ☘️ 』 ➣ 𝐓𝐡𝐨̂𝐧𝐠 𝐓𝐢𝐧 𝐂𝐡𝐢 𝐓𝐢𝐞̂́𝐭 𝐂𝐮̉𝐚 𝐁𝐨𝐭\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🧸 』 ➣ 𝐇𝐨̂𝐦 𝐍𝐚𝐲 𝐋𝐚̀ ${thu}\n『 ⏰ 』 ➣ 𝐍𝐠𝐚̀𝐲: ${ngay}\n『 💬 』 ➣ 𝐓𝐡𝐢́𝐧𝐡: 『 ${thơ} 』\n『 𝐀𝐡𝐫𝐢 𝐂𝐡𝐢𝐞̂𝐮 𝐇𝐨̂̀𝐧 𝐓𝐡𝐢𝐞̂𝐧 𝐇𝐨̂̀ 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🍊 』𝐀𝐃𝐌𝐈𝐍『 🍊 』\n『 🌹 』 ➣ 𝐓𝐡𝐨̂𝐧𝐠 𝐓𝐢𝐧 𝐀𝐝𝐦𝐢𝐧`
         return api.sendMessage({body: msg, attachment: (await global.nodemodule["axios"]({
 url: (await global.nodemodule["axios"]('https://api-kainriyu-project-yv9i.onrender.com/animevipv2')).data.url,
 method: "GET",
@@ -86,26 +98,30 @@ responseType: "stream"
 })).data
 },event.threadID);
 }
-    const dirMaterial = __dirname + `/noprefix/`;
-    if (!fs.existsSync(dirMaterial + "noprefix")) fs.mkdirSync(dirMaterial, { recursive: true });
-
-    if (!fs.existsSync(dirMaterial + "ad.mp4","ad1.mp4","ad2.mp4","ad3.mp4")) request("https://i.imgur.com/Dmf88xO.jpeg").pipe(fs.createWriteStream(dirMaterial + "ad.mp4","ad1.mp4","ad2.mp4","ad3.mp4"));
+    
+      const video = require('./../../YaeMiko ProjectS/Data/video.json');
+  var video1 = video[Math.floor(Math.random() * video.length)].trim();
+  const ext = 'mp4';
 else if (reaction == '🌹') {
   api.unsendMessage(handleReaction.messageID);
     return api.sendMessage({body: `『 🪷 』𝐀𝐃𝐌𝐈𝐍『 🪷 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n
 『 🥀 』➣ 𝐓𝐞̂𝐧: Ahri
-『 💞 』➣ 𝐁𝐢𝐞̣̂𝐭 𝐃𝐚𝐧𝐡: ...
-『 🍀 』➣ 𝐓𝐮𝐨̂̉𝐢: ...
-『 🦋 』➣ 𝐆𝐢𝐨̛́𝐢 𝐓𝐢́𝐧𝐡: 𝐍𝐚𝐦
-『 💝 』➣ 𝐂𝐡𝐢𝐞̂̀𝐮 𝐂𝐚𝐨 𝐂𝐚̂𝐧 𝐍𝐚̣̆𝐧𝐠: \n『 - 』1m9 𝐱 80𝐊𝐠
-『 ❤️ 』➣ 𝐌𝐨̂́𝐢 𝐐𝐮𝐚𝐧 𝐇𝐞̣̂: Có Vk
-『 🎀 』➣ 𝐐𝐮𝐞̂ 𝐐𝐮𝐚́𝐧: ...
+『 💞 』➣ 𝐁𝐢𝐞̣̂𝐭 𝐃𝐚𝐧𝐡: Ahri ( Hagoromo Gitsune )
+『 🍀 』➣ 𝐓𝐮𝐨̂̉𝐢: 31
+『 🦋 』➣ 𝐆𝐢𝐨̛́𝐢 𝐓𝐢́𝐧𝐡: ...
+『 💝 』➣ 𝐂𝐡𝐢𝐞̂̀𝐮 𝐂𝐚𝐨 𝐂𝐚̂𝐧 𝐍𝐚̣̆𝐧𝐠: \n『 - 』2m 𝐱 85𝐊𝐠
+『 ❤️ 』➣ 𝐌𝐨̂́𝐢 𝐐𝐮𝐚𝐧 𝐇𝐞̣̂: Có Vợ Là Tần Nguyệt
+『 🎀 』➣ 𝐐𝐮𝐞̂ 𝐐𝐮𝐚́𝐧: TP HCM
 『 🌺 』➣ 𝐆𝐮: Sao cx được!!🧸
-『 💸 』➣ 𝐓𝐢́𝐧𝐡 𝐂𝐚́𝐜𝐡: 𝐍𝐡𝐚̂𝐲 , 𝐕𝐮𝐢 𝐓𝐢́𝐧𝐡 , 𝐇𝐨̀𝐚 Đ𝐨̂̀𝐧𝐠
+『 💸 』➣ 𝐓𝐢́𝐧𝐡 𝐂𝐚́𝐜𝐡: 𝐕𝐮𝐢 𝐓𝐢́𝐧𝐡 , 𝐇𝐨̀𝐚 Đ𝐨̂̀𝐧𝐠, 𝐇𝐚𝐲 𝐂𝐨̣𝐜
 『 💫 』➣ 𝐒𝐨̛̉ 𝐓𝐡𝐢́𝐜𝐡: 𝐂𝐡𝐨̛𝐢 𝐆𝐚𝐦𝐞
-『📝』➣ 𝐁𝐨𝐭 𝐂𝐫𝐞𝐚𝐭𝐞 𝐁𝐲 𝐀𝐡𝐫𝐢`, attachment: fs.createReadStream(__dirname + `/noprefix/ad.mp4`) 
-},event.threadID, event.messageID);
-}
+『📝』➣ 𝐁𝐨𝐭 𝐂𝐫𝐞𝐚𝐭𝐞 𝐁𝐲 𝐀𝐡𝐫𝐢`,       attachment: fs.createReadStream(__dirname + `/cache/adahri.${ext}`)
+    }, event.threadID, () => fs.unlinkSync(__dirname + `/cache/adahri.${ext}`), event.messageID);
+  };
+  
+  // Tải video từ liên kết và lưu vào cache
+  request(video1).pipe(fs.createWriteStream(__dirname + `/cache/adahri.${ext}`)).on("close", callback);
+};
   else if (reaction == '🍓') {
     api.unsendMessage(handleReaction.messageID);
     return api.sendMessage({body: `==== [ 𝐒𝐡𝐢𝐫𝐚𝐨𝐫𝐢🦋 ] ====
@@ -151,7 +167,7 @@ responseType: "stream"
 }
 else if (reaction == '☘️') {
   api.unsendMessage(handleReaction.messageID);
-    return api.sendMessage({body: `『 𝗧𝗛𝗢̂𝗡𝗚 𝗧𝗜𝗡 𝗕𝗢𝗧 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 💞 』𝐁𝐨𝐭 𝐘𝐚𝐞 𝐌𝐢𝐤𝐨 𝐏𝐫𝐨𝐣𝐞𝐜𝐭𝐒\n『 💟 』𝗕𝗼𝘁 𝗩𝗲𝗿𝘀𝗶𝗼𝗻: 4.0.0\n『 🦋 』𝗔𝗱𝗺𝗶𝗻 𝗕𝗼𝘁: 𓂄𓆩𑁍𝑨𝒉𝒓𝒊𑁍𓆪𓂁\n- 𝗠𝗲𝘀𝘀𝗲𝗻𝗴𝗲𝗿: m.me/KainFoxy.1911\n- 𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸: fb.com/KainFoxy.1911\n『 𝐀𝐡𝐫𝐢 𝐇𝐮𝐲𝐞̂̀𝐧 𝐓𝐡𝐨𝐚̣𝐢 𝐁𝐚̂́𝐭 𝐓𝐮̛ 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🥀 』𝐓𝐤𝐬 𝐔𝐬𝐢𝐧𝐠 𝐁𝐨𝐭 𝐎𝐟 𝐀𝐡𝐫𝐢\n『 🎀 』𝐁𝐨𝐭 𝐂𝐫𝐞𝐚𝐭𝐞 𝐁𝐲 𝐀𝐡𝐫𝐢`,attachment: (await global.nodemodule["axios"]({
+    return api.sendMessage({body: `『 🍊 』𝐁𝐎𝐓 𝐏𝐑𝐎𝐉𝐄𝐂𝐓『 🍊 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 💞 』𝐁𝐨𝐭 𝐘𝐚𝐞 𝐌𝐢𝐤𝐨 - 𝐍𝐢𝐧𝐨 𝐏𝐫𝐨𝐣𝐞𝐜𝐭𝐒\n『 💟 』𝐁𝐨𝐭 𝐕𝐞𝐫𝐬𝐢𝐨𝐧:  ${global.config.VERSION}\n『 🦋 』𝐀𝐝𝐦𝐢𝐧 𝐁𝐨𝐭: 𓂄𓆩𑁍𝑨𝒉𝒓𝒊𑁍𓆪𓂁\n『 🎀 』𝐏𝐫𝐞𝐟𝐢𝐱: ${global.config.PREFIX}\n『 🪷 』𝐏𝐢𝐧𝐠: ${Date.now() - dateNow}ms\n『 📒 』𝐂𝐨𝐦𝐦𝐚𝐧𝐝 ${client.commands.size} 𝐋𝐞̣̂𝐧𝐡\n『 💝 』𝐓𝐞̂𝐧 𝐁𝐨𝐭: ${global.config.BOTNAME}\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 ☘️ 』𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤: fb.com/AhriCuuViThienHo\n『 𝐀𝐡𝐫𝐢 𝐇𝐮𝐲𝐞̂̀𝐧 𝐓𝐡𝐨𝐚̣𝐢 𝐁𝐚̂́𝐭 𝐓𝐮̛ 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🥀 』𝐓𝐤𝐬 𝐔𝐬𝐢𝐧𝐠 𝐁𝐨𝐭 𝐎𝐟 𝐀𝐡𝐫𝐢\n『 🎀 』𝐁𝐨𝐭 𝐂𝐫𝐞𝐚𝐭𝐞 𝐁𝐲 𝐀𝐡𝐫𝐢`,attachment: (await global.nodemodule["axios"]({
 url: (await global.nodemodule["axios"]('https://api-kainriyu-project-yv9i.onrender.com/animevipv2')).data.url,
 method: "GET",
 responseType: "stream"
