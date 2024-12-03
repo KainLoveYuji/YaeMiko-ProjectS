@@ -74,11 +74,20 @@ api.sendMessage(msg, event.threadID, (err, info) => {
 };
 if (event.messageID !== handleReaction.messageID || event.senderID !== handleReaction.author) return;
     if (event.reaction !== "🐾") return;
-    try {
-        const imageUrl = (await axios.get("https://api-kainriyu-project-yv9i.onrender.com/animevipv2")).data.url;
-        const imageStream = (await axios({ url: imageUrl, method: "GET", responseType: "stream" })).data;
+    const dongdev2 = so[Math.floor(Math.random()*so.length)];
+  const imageUrls2 = await Promise.all(Array.from({ length: `${dongdev}` }, async () => {
+    const res = await axios.get(`https://api-kainriyu-project-yv9i.onrender.com/animvipv2`);
+    return res.data.url;   
+  }));
+  const imgurl2 = await Promise.all(imageUrls.map(async (url) => {
+    return (await axios({
+      url,
+      method: "GET",
+      responseType: "stream"
+    })).data
+  }));
 const menu = {
-body: `『 🌿 』𝐌𝐄𝐍𝐔『 🌿 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🍓 』 ➣ 𝐃𝐚𝐧𝐡 𝐒𝐚́𝐜𝐡 𝐂𝐚́𝐜 𝐋𝐞̣̂𝐧𝐡 𝐏𝐡𝐨̂̉ 𝐁𝐢𝐞̂́𝐧 𝐓𝐡𝐮̛𝐨̛̀𝐧𝐠 𝐃𝐮̀𝐧𝐠\n『 ☘️ 』 ➣ 𝐓𝐡𝐨̂𝐧𝐠 𝐓𝐢𝐧 𝐂𝐡𝐢 𝐓𝐢𝐞̂́𝐭 𝐂𝐮̉𝐚 𝐁𝐨𝐭\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🧸 』 ➣ 𝐇𝐨̂𝐦 𝐍𝐚𝐲 𝐋𝐚̀ ${thu}\n『 ⏰ 』 ➣ 𝐍𝐠𝐚̀𝐲: ${ngay}\n『 💬 』 ➣ 𝐓𝐡𝐢́𝐧𝐡: 『 ${thơ} 』\n『 𝐀𝐡𝐫𝐢 𝐂𝐡𝐢𝐞̂𝐮 𝐇𝐨̂̀𝐧 𝐓𝐡𝐢𝐞̂𝐧 𝐇𝐨̂̀ 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🍊 』𝐀𝐃𝐌𝐈𝐍『 🍊 』\n『 🌹 』 ➣ 𝐓𝐡𝐨̂𝐧𝐠 𝐓𝐢𝐧 𝐀𝐝𝐦𝐢𝐧`, attachment: imageStream
+body: `『 🌿 』𝐌𝐄𝐍𝐔『 🌿 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🍓 』 ➣ 𝐃𝐚𝐧𝐡 𝐒𝐚́𝐜𝐡 𝐂𝐚́𝐜 𝐋𝐞̣̂𝐧𝐡 𝐏𝐡𝐨̂̉ 𝐁𝐢𝐞̂́𝐧 𝐓𝐡𝐮̛𝐨̛̀𝐧𝐠 𝐃𝐮̀𝐧𝐠\n『 ☘️ 』 ➣ 𝐓𝐡𝐨̂𝐧𝐠 𝐓𝐢𝐧 𝐂𝐡𝐢 𝐓𝐢𝐞̂́𝐭 𝐂𝐮̉𝐚 𝐁𝐨𝐭\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🧸 』 ➣ 𝐇𝐨̂𝐦 𝐍𝐚𝐲 𝐋𝐚̀ ${thu}\n『 ⏰ 』 ➣ 𝐍𝐠𝐚̀𝐲: ${ngay}\n『 💬 』 ➣ 𝐓𝐡𝐢́𝐧𝐡: 『 ${thơ} 』\n『 𝐀𝐡𝐫𝐢 𝐂𝐡𝐢𝐞̂𝐮 𝐇𝐨̂̀𝐧 𝐓𝐡𝐢𝐞̂𝐧 𝐇𝐨̂̀ 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🍊 』𝐀𝐃𝐌𝐈𝐍『 🍊 』\n『 🌹 』 ➣ 𝐓𝐡𝐨̂𝐧𝐠 𝐓𝐢𝐧 𝐀𝐝𝐦𝐢𝐧`, attachment: imgurl2
     };
 
     // Gửi menu
@@ -91,8 +100,7 @@ body: `『 🌿 』𝐌𝐄𝐍𝐔『 🌿 』\n▱▱▱▱▱▱▱▱▱▱�
             messageID: info.messageID, // ID tin nhắn gốc
             author: event.senderID // Người gửi menu
         });
-    });
-} catch (error) {
+    }); catch (error) {
     console.error("Error sending message:", error);
 }
 module.exports.handleReaction = async ({ event, api, handleReaction, Currencies, Users}) => {
