@@ -63,14 +63,15 @@ const dongdev = so[Math.floor(Math.random()*so.length)];
     body: `『  ${global.config.BOTNAME}  』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🎀 』 ➣ 𝐒𝐚𝐢 𝐥𝐞̣̂𝐧𝐡 𝐫𝐨̂̀𝐢 𝐛𝐚̣𝐧 𝐨̛𝐢 !!\n『 💮 』 ➣ 𝐂𝐡𝐚̀𝐨 ${global.data.userName.get(event.senderID)} 𝐂𝐡𝐮́𝐜 𝐁𝐚̣𝐧 𝟏 𝐍𝐠𝐚̀𝐲 𝐕𝐮𝐢 𝐕𝐞̉\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🧸 』 ➣ 𝐇𝐨̂𝐦 𝐍𝐚𝐲 𝐋𝐚̀ ${thu}\n『 ⏰ 』 ➣ 𝐍𝐠𝐚̀𝐲: ${ngay}\n◆━━━◆『 ${icon} 』◆━━━◆ \n『 💬 』 ➣ 𝐓𝐡𝐢́𝐧𝐡: 『 ${thơ} 』\n『 𝐀𝐡𝐫𝐢 𝐂𝐡𝐢𝐞̂𝐮 𝐇𝐨̂̀𝐧 𝐓𝐡𝐢𝐞̂𝐧 𝐇𝐨̂̀ 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 ⚙️ 』 ➣ 𝐓𝐢̀𝐧𝐡 𝐓𝐫𝐚̣𝐧𝐠 𝐇𝐞̣̂ 𝐓𝐡𝐨̂́𝐧𝐠: 𝐓𝐨̂́𝐭🌿\n『 🥀 』 ➣ 𝐓𝐨̂́𝐜 𝐃𝐨̣̂ 𝐗𝐮̛̉ 𝐋𝐲́ : ${Date.now() - dateNow} ms\n『 ⏳ 』 ➣ 𝐁𝐨𝐭 𝐎𝐧𝐥𝐢𝐧𝐞 : ${ahri} 𝐆𝐢𝐨̛̀ ${ht} 𝐏𝐡𝐮́𝐭 ${bt} 𝐆𝐢𝐚̂𝐲 🧸\n『 𝐌𝐲 𝐋𝐨𝐯𝐞 𝐘𝐚𝐞 𝐌𝐢𝐤𝐨 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 ${timeNow} 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 𝐀𝐡𝐫𝐢 𝐇𝐮𝐲𝐞̂̀𝐧 𝐓𝐡𝐨𝐚̣𝐢 𝐁𝐚̂́𝐭 𝐓𝐮̛̉ 』\n\n𝗧𝗵𝗮̉ 𝗖𝗮̉𝗺 𝗫𝘂́𝗰 "🐾" 𝗩𝗮̀𝗼 𝗧𝗶𝗻 𝗡𝗵𝗮̆́𝗻 𝗡𝗮̀𝘆 𝗠𝘂𝗼̂́𝗻 𝗫𝗲𝗺 𝗧𝗵𝗼̂𝗻𝗴 𝗧𝗶𝗻`,
     attachment: imgurl
 };
-    api.sendMessage(msg,event.threadID, (err, info) => {
-    global.client.handleReaction.push({
-      name: this.config.name, 
-      messageID: info.messageID,
-      author: event.senderID,
-    })
-    },event.messageID);
-     }
+api.sendMessage(msg, event.threadID, (err, info) => {
+        if (err) return console.error(err);
+        global.client.handleReaction.push({
+            name: this.config.name,
+            messageID: info.messageID,
+            author: event.senderID
+        });
+    });
+};
 module.exports.handleReaction = async ({ event, api, handleReaction, Currencies, Users}) => {
  const moment = require("moment-timezone");
   const ngay = moment.tz("Asia/Ho_Chi_Minh").format("DD/MM/YYYY");
@@ -88,17 +89,28 @@ module.exports.handleReaction = async ({ event, api, handleReaction, Currencies,
 const axios = global.nodemodule["axios"];
 const fs = global.nodemodule["fs-extra"];
 const { threadID,reaction,messageID, userID } = event;
-if (reaction == '🐾') {
-  api.unsendMessage(handleReaction.messageID);
-var msg = `『 🌿 』𝐌𝐄𝐍𝐔『 🌿 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🍓 』 ➣ 𝐃𝐚𝐧𝐡 𝐒𝐚́𝐜𝐡 𝐂𝐚́𝐜 𝐋𝐞̣̂𝐧𝐡 𝐏𝐡𝐨̂̉ 𝐁𝐢𝐞̂́𝐧 𝐓𝐡𝐮̛𝐨̛̀𝐧𝐠 𝐃𝐮̀𝐧𝐠\n『 ☘️ 』 ➣ 𝐓𝐡𝐨̂𝐧𝐠 𝐓𝐢𝐧 𝐂𝐡𝐢 𝐓𝐢𝐞̂́𝐭 𝐂𝐮̉𝐚 𝐁𝐨𝐭\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🧸 』 ➣ 𝐇𝐨̂𝐦 𝐍𝐚𝐲 𝐋𝐚̀ ${thu}\n『 ⏰ 』 ➣ 𝐍𝐠𝐚̀𝐲: ${ngay}\n『 💬 』 ➣ 𝐓𝐡𝐢́𝐧𝐡: 『 ${thơ} 』\n『 𝐀𝐡𝐫𝐢 𝐂𝐡𝐢𝐞̂𝐮 𝐇𝐨̂̀𝐧 𝐓𝐡𝐢𝐞̂𝐧 𝐇𝐨̂̀ 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🍊 』𝐀𝐃𝐌𝐈𝐍『 🍊 』\n『 🌹 』 ➣ 𝐓𝐡𝐨̂𝐧𝐠 𝐓𝐢𝐧 𝐀𝐝𝐦𝐢𝐧`
-        return api.sendMessage({body: msg, attachment: (await global.nodemodule["axios"]({
-url: (await global.nodemodule["axios"]('https://api-kainriyu-project-yv9i.onrender.com/animevipv2')).data.url,
-method: "GET",
-responseType: "stream"
-})).data
-},event.threadID);
-}
-   else if (reaction == '🌹') {
+if (event.messageID !== handleReaction.messageID || event.senderID !== handleReaction.author) return;
+    if (event.reaction !== "🐾") return;
+    try {
+        const imageUrl = (await axios.get("https://api-kainriyu-project-yv9i.onrender.com/animevipv2")).data.url;
+        const imageStream = (await axios({ url: imageUrl, method: "GET", responseType: "stream" })).data;
+const msg = {
+body: `『 🌿 』𝐌𝐄𝐍𝐔『 🌿 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🍓 』 ➣ 𝐃𝐚𝐧𝐡 𝐒𝐚́𝐜𝐡 𝐂𝐚́𝐜 𝐋𝐞̣̂𝐧𝐡 𝐏𝐡𝐨̂̉ 𝐁𝐢𝐞̂́𝐧 𝐓𝐡𝐮̛𝐨̛̀𝐧𝐠 𝐃𝐮̀𝐧𝐠\n『 ☘️ 』 ➣ 𝐓𝐡𝐨̂𝐧𝐠 𝐓𝐢𝐧 𝐂𝐡𝐢 𝐓𝐢𝐞̂́𝐭 𝐂𝐮̉𝐚 𝐁𝐨𝐭\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🧸 』 ➣ 𝐇𝐨̂𝐦 𝐍𝐚𝐲 𝐋𝐚̀ ${thu}\n『 ⏰ 』 ➣ 𝐍𝐠𝐚̀𝐲: ${ngay}\n『 💬 』 ➣ 𝐓𝐡𝐢́𝐧𝐡: 『 ${thơ} 』\n『 𝐀𝐡𝐫𝐢 𝐂𝐡𝐢𝐞̂𝐮 𝐇𝐨̂̀𝐧 𝐓𝐡𝐢𝐞̂𝐧 𝐇𝐨̂̀ 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🍊 』𝐀𝐃𝐌𝐈𝐍『 🍊 』\n『 🌹 』 ➣ 𝐓𝐡𝐨̂𝐧𝐠 𝐓𝐢𝐧 𝐀𝐝𝐦𝐢𝐧`
+attachment: imageStream
+};
+        api.sendMessage(menuMessage, event.threadID, (err, info) => {
+        if (err) return console.error(err);
+
+        // Lắng nghe sự kiện "reaction"
+        global.client.handleReaction.push({
+            name: this.config.name,
+            messageID: info.messageID, // ID tin nhắn gốc
+            author: event.senderID // Người gửi menu
+        });
+    });
+};
+if (event.messageID !== handleReaction.messageID || event.senderID !== handleReaction.author) return;
+    if (event.reaction !== "🌹") return;
     const video = require('./../../YaeMiko ProjectS/Data/video.json');
     var video1 = video[Math.floor(Math.random() * video.length)].trim();
     const ext = 'mp4';
@@ -127,7 +139,6 @@ responseType: "stream"
             event.messageID
         );
     });
-}
   else if (reaction == '🍓') {
     api.unsendMessage(handleReaction.messageID);
     return api.sendMessage({body: `==== [ 𝐒𝐡𝐢𝐫𝐚𝐨𝐫𝐢🦋 ] ====
@@ -173,7 +184,7 @@ responseType: "stream"
 }
 else if (reaction == '☘️') {
   api.unsendMessage(handleReaction.messageID);
-    return api.sendMessage({body: `『 🍊 』𝐁𝐎𝐓 𝐏𝐑𝐎𝐉𝐄𝐂𝐓『 🍊 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 💞 』𝐁𝐨𝐭 𝐘𝐚𝐞 𝐌𝐢𝐤𝐨 - 𝐍𝐢𝐧𝐨 𝐏𝐫𝐨𝐣𝐞𝐜𝐭𝐒\n『 💟 』𝐁𝐨𝐭 𝐕𝐞𝐫𝐬𝐢𝐨𝐧:  ${global.config.VERSION}\n『 🦋 』𝐀𝐝𝐦𝐢𝐧 𝐁𝐨𝐭: 𓂄𓆩𑁍𝑨𝒉𝒓𝒊𑁍𓆪𓂁\n『 🎀 』𝐏𝐫𝐞𝐟𝐢𝐱: ${global.config.PREFIX}\n『 🪷 』𝐏𝐢𝐧𝐠: ${Date.now() - dateNow}ms\n『 📒 』𝐂𝐨𝐦𝐦𝐚𝐧𝐝 ${client.commands.size} 𝐋𝐞̣̂𝐧𝐡\n『 💝 』𝐓𝐞̂𝐧 𝐁𝐨𝐭: ${global.config.BOTNAME}\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 ☘️ 』𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤: fb.com/AhriCuuViThienHo\n『 𝐀𝐡𝐫𝐢 𝐇𝐮𝐲𝐞̂̀𝐧 𝐓𝐡𝐨𝐚̣𝐢 𝐁𝐚̂́𝐭 𝐓𝐮̛ 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🥀 』𝐓𝐤𝐬 𝐔𝐬𝐢𝐧𝐠 𝐁𝐨𝐭 𝐎𝐟 𝐀𝐡𝐫𝐢\n『 🎀 』𝐁𝐨𝐭 𝐂𝐫𝐞𝐚𝐭𝐞 𝐁𝐲 𝐀𝐡𝐫𝐢`,attachment: (await global.nodemodule["axios"]({
+    return api.sendMessage({body: `『 🍊 』𝐁𝐎𝐓 𝐏𝐑𝐎𝐉𝐄𝐂𝐓『 🍊 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 💞 』𝐁𝐨𝐭 𝐘𝐚𝐞 𝐌𝐢𝐤𝐨 - 𝐍𝐢𝐧𝐨 𝐏𝐫𝐨𝐣𝐞𝐜𝐭𝐒\n『 💟 』𝐁𝐨𝐭 𝐕𝐞𝐫𝐬𝐢𝐨𝐧:  ${global.config.VERSION}\n『 🦋 』𝐀𝐝𝐦𝐢𝐧 𝐁𝐨𝐭: 𓂄𓆩𑁍𝑨𝒉𝒓𝒊𑁍𓆪𓂁\n『 🎀 』𝐏𝐫𝐞𝐟𝐢𝐱: ${global.config.PREFIX}\n『 📒 』𝐂𝐨𝐦𝐦𝐚𝐧𝐝 ${client.commands.size} 𝐋𝐞̣̂𝐧𝐡\n『 💝 』𝐓𝐞̂𝐧 𝐁𝐨𝐭: ${global.config.BOTNAME}\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 ☘️ 』𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤: fb.com/AhriCuuViThienHo\n『 𝐀𝐡𝐫𝐢 𝐇𝐮𝐲𝐞̂̀𝐧 𝐓𝐡𝐨𝐚̣𝐢 𝐁𝐚̂́𝐭 𝐓𝐮̛ 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🥀 』𝐓𝐤𝐬 𝐔𝐬𝐢𝐧𝐠 𝐁𝐨𝐭 𝐎𝐟 𝐀𝐡𝐫𝐢\n『 🎀 』𝐁𝐨𝐭 𝐂𝐫𝐞𝐚𝐭𝐞 𝐁𝐲 𝐀𝐡𝐫𝐢`,attachment: (await global.nodemodule["axios"]({
 url: (await global.nodemodule["axios"]('https://api-kainriyu-project-yv9i.onrender.com/animevipv2')).data.url,
 method: "GET",
 responseType: "stream"
