@@ -94,11 +94,11 @@ if (event.messageID !== handleReaction.messageID || event.senderID !== handleRea
     try {
         const imageUrl = (await axios.get("https://api-kainriyu-project-yv9i.onrender.com/animevipv2")).data.url;
         const imageStream = (await axios({ url: imageUrl, method: "GET", responseType: "stream" })).data;
-const msg = {
+const menu = {
 body: `『 🌿 』𝐌𝐄𝐍𝐔『 🌿 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🍓 』 ➣ 𝐃𝐚𝐧𝐡 𝐒𝐚́𝐜𝐡 𝐂𝐚́𝐜 𝐋𝐞̣̂𝐧𝐡 𝐏𝐡𝐨̂̉ 𝐁𝐢𝐞̂́𝐧 𝐓𝐡𝐮̛𝐨̛̀𝐧𝐠 𝐃𝐮̀𝐧𝐠\n『 ☘️ 』 ➣ 𝐓𝐡𝐨̂𝐧𝐠 𝐓𝐢𝐧 𝐂𝐡𝐢 𝐓𝐢𝐞̂́𝐭 𝐂𝐮̉𝐚 𝐁𝐨𝐭\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🧸 』 ➣ 𝐇𝐨̂𝐦 𝐍𝐚𝐲 𝐋𝐚̀ ${thu}\n『 ⏰ 』 ➣ 𝐍𝐠𝐚̀𝐲: ${ngay}\n『 💬 』 ➣ 𝐓𝐡𝐢́𝐧𝐡: 『 ${thơ} 』\n『 𝐀𝐡𝐫𝐢 𝐂𝐡𝐢𝐞̂𝐮 𝐇𝐨̂̀𝐧 𝐓𝐡𝐢𝐞̂𝐧 𝐇𝐨̂̀ 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🍊 』𝐀𝐃𝐌𝐈𝐍『 🍊 』\n『 🌹 』 ➣ 𝐓𝐡𝐨̂𝐧𝐠 𝐓𝐢𝐧 𝐀𝐝𝐦𝐢𝐧`
 attachment: imageStream
 };
-        api.sendMessage(menuMessage, event.threadID, (err, info) => {
+        api.sendMessage(menu, event.threadID, (err, info) => {
         if (err) return console.error(err);
 
         // Lắng nghe sự kiện "reaction"
