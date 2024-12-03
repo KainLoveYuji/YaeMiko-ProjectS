@@ -151,7 +151,8 @@ if (event.messageID !== handleReaction.messageID || event.senderID !== handleRea
             event.messageID
         );
     });
-  else if (reaction == '🍓') {
+  if (event.messageID !== handleReaction.messageID || event.senderID !== handleReaction.author) return;
+    if (event.reaction !== "🍓") return;
     api.unsendMessage(handleReaction.messageID);
     return api.sendMessage({body: `==== [ 𝐒𝐡𝐢𝐫𝐚𝐨𝐫𝐢🦋 ] ====
 ━━━━━━━━━━━━━━━━━━
@@ -193,8 +194,8 @@ method: "GET",
 responseType: "stream"
 })).data
 },event.threadID, event.messageID);
-}
-else if (reaction == '☘️') {
+if (event.messageID !== handleReaction.messageID || event.senderID !== handleReaction.author) return;
+    if (event.reaction !== "☘️") return;
   api.unsendMessage(handleReaction.messageID);
     return api.sendMessage({body: `『 🍊 』𝐁𝐎𝐓 𝐏𝐑𝐎𝐉𝐄𝐂𝐓『 🍊 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 💞 』𝐁𝐨𝐭 𝐘𝐚𝐞 𝐌𝐢𝐤𝐨 - 𝐍𝐢𝐧𝐨 𝐏𝐫𝐨𝐣𝐞𝐜𝐭𝐒\n『 💟 』𝐁𝐨𝐭 𝐕𝐞𝐫𝐬𝐢𝐨𝐧:  ${global.config.VERSION}\n『 🦋 』𝐀𝐝𝐦𝐢𝐧 𝐁𝐨𝐭: 𓂄𓆩𑁍𝑨𝒉𝒓𝒊𑁍𓆪𓂁\n『 🎀 』𝐏𝐫𝐞𝐟𝐢𝐱: ${global.config.PREFIX}\n『 📒 』𝐂𝐨𝐦𝐦𝐚𝐧𝐝 ${client.commands.size} 𝐋𝐞̣̂𝐧𝐡\n『 💝 』𝐓𝐞̂𝐧 𝐁𝐨𝐭: ${global.config.BOTNAME}\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 ☘️ 』𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤: fb.com/AhriCuuViThienHo\n『 𝐀𝐡𝐫𝐢 𝐇𝐮𝐲𝐞̂̀𝐧 𝐓𝐡𝐨𝐚̣𝐢 𝐁𝐚̂́𝐭 𝐓𝐮̛ 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n『 🥀 』𝐓𝐤𝐬 𝐔𝐬𝐢𝐧𝐠 𝐁𝐨𝐭 𝐎𝐟 𝐀𝐡𝐫𝐢\n『 🎀 』𝐁𝐨𝐭 𝐂𝐫𝐞𝐚𝐭𝐞 𝐁𝐲 𝐀𝐡𝐫𝐢`,attachment: (await global.nodemodule["axios"]({
 url: (await global.nodemodule["axios"]('https://api-kainriyu-project-yv9i.onrender.com/animevipv2')).data.url,
@@ -202,13 +203,12 @@ method: "GET",
 responseType: "stream"
 })).data
 },event.threadID, event.messageID);
-}
-  else if (reaction == '😍') {
+if (event.messageID !== handleReaction.messageID || event.senderID !== handleReaction.author) return;
+    if (event.reaction !== "🍊") return;
     api.unsendMessage(handleReaction.messageID);
     return api.sendMessage(`
 🎊 Đ𝗮̂𝘆 𝗹𝗮̀ 𝗠𝗶𝗿𝗮𝗶 𝗯𝗼𝘁 𝗞𝗶𝘇𝘇😻𝗞𝗶𝗻𝗻 đ𝘂̛𝗼̛̣𝗰 𝗮𝗱𝗺𝗶𝗻 𝗹𝗮̂́𝘆 𝘁𝘂̛̀ 𝘀𝗿𝗰 𝗱 - 𝗷𝘂𝗸𝗲 𝗰𝘂̉𝗮 𝗱𝗶𝗲̣̂𝗻 𝘃𝗲̂̀ 𝘃𝗮̀ 𝗺𝗼𝗱 𝗹𝗮̣𝗶 đ𝗲̂̉ 𝘁𝗶𝗲̂́𝗽 𝘁𝘂̣𝗰 𝗽𝗵𝗮́𝘁 𝘁𝗿𝗶𝗲̂̉𝗻
 𝗠𝗼̣𝗶 𝘁𝗵𝗮̆́𝗰 𝗺𝗮̆́𝗰 𝗰𝗼́ 𝘁𝗵𝗲̂̉ 𝗹𝗶𝗲̂𝗻 𝗵𝗲̣̂ 𝗮𝗱𝗺𝗶𝗻
 🌐 𝗙𝗔𝗖𝗘𝗕𝗢𝗢𝗞: https://www.facebook.com/tony.derby.773
 `, event.threadID, event.messageID);
-  }
     };
