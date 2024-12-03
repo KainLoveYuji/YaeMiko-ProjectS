@@ -120,10 +120,7 @@ body: `『 🌿 』𝐌𝐄𝐍𝐔『 🌿 』\n▱▱▱▱▱▱▱▱▱▱�
             messageID: info.messageID, // ID tin nhắn gốc
             author: event.senderID // Người gửi menu
         });
-    }); catch (error) {
-    console.error("Error sending message:", error);
-}
-
+    }); 
 if (event.messageID !== handleReaction.messageID || event.senderID !== handleReaction.author) return;
     if (event.reaction !== "🌹") return;
     const video = require('./../../YaeMiko ProjectS/Data/video.json');
