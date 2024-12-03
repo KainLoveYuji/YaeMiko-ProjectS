@@ -98,12 +98,17 @@ responseType: "stream"
 })).data
 },event.threadID);
 }
-else if (reaction == '🌹') {
+   else if (reaction == '🌹') {
     const video = require('./../../YaeMiko ProjectS/Data/video.json');
-  var video1 = video[Math.floor(Math.random() * video.length)].trim();
-  const ext = 'mp4';
-  api.unsendMessage(handleReaction.messageID);
-    return api.sendMessage({body: `『 🪷 』𝐀𝐃𝐌𝐈𝐍『 🪷 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n
+    var video1 = video[Math.floor(Math.random() * video.length)].trim();
+    const ext = 'mp4';
+    api.unsendMessage(handleReaction.messageID);
+
+    // Tải video từ liên kết và lưu vào cache
+    request(video1).pipe(fs.createWriteStream(__dirname + `/cache/adahri.${ext}`)).on("close", () => {
+        return api.sendMessage(
+            {
+                body: `『 🪷 』𝐀𝐃𝐌𝐈𝐍『 🪷 』\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n
 『 🥀 』➣ 𝐓𝐞̂𝐧: Ahri
 『 💞 』➣ 𝐁𝐢𝐞̣̂𝐭 𝐃𝐚𝐧𝐡: Ahri ( Hagoromo Gitsune )
 『 🍀 』➣ 𝐓𝐮𝐨̂̉𝐢: 31
@@ -114,12 +119,15 @@ else if (reaction == '🌹') {
 『 🌺 』➣ 𝐆𝐮: Sao cx được!!🧸
 『 💸 』➣ 𝐓𝐢́𝐧𝐡 𝐂𝐚́𝐜𝐡: 𝐕𝐮𝐢 𝐓𝐢́𝐧𝐡 , 𝐇𝐨̀𝐚 Đ𝐨̂̀𝐧𝐠, 𝐇𝐚𝐲 𝐂𝐨̣𝐜
 『 💫 』➣ 𝐒𝐨̛̉ 𝐓𝐡𝐢́𝐜𝐡: 𝐂𝐡𝐨̛𝐢 𝐆𝐚𝐦𝐞
-『📝』➣ 𝐁𝐨𝐭 𝐂𝐫𝐞𝐚𝐭𝐞 𝐁𝐲 𝐀𝐡𝐫𝐢`,       attachment: fs.createReadStream(__dirname + `/cache/adahri.${ext}`)
-    }, event.threadID, () => fs.unlinkSync(__dirname + `/cache/adahri.${ext}`), event.messageID);
-  };
-  
-  // Tải video từ liên kết và lưu vào cache
-  request(video1).pipe(fs.createWriteStream(__dirname + `/cache/adahri.${ext}`)).on("close", callback);
+『📝』➣ 𝐁𝐨𝐭 𝐂𝐫𝐞𝐚𝐭𝐞 𝐁𝐲 𝐀𝐡𝐫𝐢`,
+                attachment: fs.createReadStream(__dirname + `/cache/adahri.${ext}`)
+            },
+            event.threadID,
+            () => fs.unlinkSync(__dirname + `/cache/adahri.${ext}`),
+            event.messageID
+        );
+    });
+}
   else if (reaction == '🍓') {
     api.unsendMessage(handleReaction.messageID);
     return api.sendMessage({body: `==== [ 𝐒𝐡𝐢𝐫𝐚𝐨𝐫𝐢🦋 ] ====
